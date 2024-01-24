@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 24, 2024 at 07:35 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.10
+-- Generation Time: Jan 25, 2024 at 01:13 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,89 +24,66 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `author`
---
-
-CREATE TABLE `author` (
-  `author_id` int(11) NOT NULL,
-  `author_name` varchar(30) NOT NULL,
-  `author_birthdate` datetime NOT NULL,
-  `author_nationality` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `book`
 --
 
 CREATE TABLE `book` (
   `book_isbn` int(11) NOT NULL,
   `book_title` varchar(30) NOT NULL,
-  `book_author` varchar(30) NOT NULL,
-  `book_genre` varchar(20) NOT NULL,
+  `book_author` int(20) NOT NULL,
+  `book_genre` int(20) NOT NULL,
   `book_published_year` datetime NOT NULL,
-  `book_copies_available` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `book_copies_available` int(11) NOT NULL,
+  `book_total_copies` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `borrowing`
+-- Table structure for table `librarian`
 --
 
-CREATE TABLE `borrowing` (
-  `borrowing_id` int(11) NOT NULL,
-  `borrowing_borrow_date` datetime NOT NULL,
-  `borrowing_return_date` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE `librarian` (
+  `librarian_id` int(11) NOT NULL,
+  `librarian_name` varchar(30) NOT NULL,
+  `librarian_address` varchar(50) NOT NULL,
+  `librarian_phone_number` int(11) NOT NULL,
+  `librarian_email` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `genre`
+-- Table structure for table `student`
 --
 
-CREATE TABLE `genre` (
-  `genre_id` int(11) NOT NULL,
-  `genre_name` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE `student` (
+  `student_id` int(11) NOT NULL,
+  `student_name` varchar(30) NOT NULL,
+  `student_address` varchar(50) NOT NULL,
+  `student_phone_number` int(11) NOT NULL,
+  `student_email` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `member`
+-- Table structure for table `transaction`
 --
 
-CREATE TABLE `member` (
-  `member_id` int(11) NOT NULL,
-  `member_name` varchar(30) NOT NULL,
-  `member_grade` varchar(20) NOT NULL,
-  `member_email` varchar(20) NOT NULL,
-  `member_join_date` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `publisher`
---
-
-CREATE TABLE `publisher` (
-  `publisher_id` int(11) NOT NULL,
-  `publisher_name` varchar(30) NOT NULL,
-  `publisher_location` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE `transaction` (
+  `transaction_id` int(11) NOT NULL,
+  `transaction_book_isbn` int(11) NOT NULL,
+  `transaction_student_id` int(11) NOT NULL,
+  `transaction_librarian_id` int(11) NOT NULL,
+  `transaction_date_borrowed` datetime NOT NULL,
+  `transaction_due_date` datetime NOT NULL,
+  `transaction_date_returned` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `author`
---
-ALTER TABLE `author`
-  ADD PRIMARY KEY (`author_id`);
 
 --
 -- Indexes for table `book`
@@ -115,38 +92,29 @@ ALTER TABLE `book`
   ADD PRIMARY KEY (`book_isbn`);
 
 --
--- Indexes for table `borrowing`
+-- Indexes for table `librarian`
 --
-ALTER TABLE `borrowing`
-  ADD PRIMARY KEY (`borrowing_id`);
+ALTER TABLE `librarian`
+  ADD PRIMARY KEY (`librarian_id`);
 
 --
--- Indexes for table `genre`
+-- Indexes for table `student`
 --
-ALTER TABLE `genre`
-  ADD PRIMARY KEY (`genre_id`);
+ALTER TABLE `student`
+  ADD PRIMARY KEY (`student_id`);
 
 --
--- Indexes for table `member`
+-- Indexes for table `transaction`
 --
-ALTER TABLE `member`
-  ADD PRIMARY KEY (`member_id`);
-
---
--- Indexes for table `publisher`
---
-ALTER TABLE `publisher`
-  ADD PRIMARY KEY (`publisher_id`);
+ALTER TABLE `transaction`
+  ADD PRIMARY KEY (`transaction_id`),
+  ADD KEY `FK_book_isbn` (`transaction_book_isbn`),
+  ADD KEY `FK_student_id` (`transaction_student_id`),
+  ADD KEY `FK_librarian_id` (`transaction_librarian_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT for table `author`
---
-ALTER TABLE `author`
-  MODIFY `author_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `book`
@@ -155,28 +123,34 @@ ALTER TABLE `book`
   MODIFY `book_isbn` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `borrowing`
+-- AUTO_INCREMENT for table `librarian`
 --
-ALTER TABLE `borrowing`
-  MODIFY `borrowing_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `librarian`
+  MODIFY `librarian_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `genre`
+-- AUTO_INCREMENT for table `student`
 --
-ALTER TABLE `genre`
-  MODIFY `genre_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `student`
+  MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `member`
+-- AUTO_INCREMENT for table `transaction`
 --
-ALTER TABLE `member`
-  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `transaction`
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `publisher`
+-- Constraints for dumped tables
 --
-ALTER TABLE `publisher`
-  MODIFY `publisher_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for table `transaction`
+--
+ALTER TABLE `transaction`
+  ADD CONSTRAINT `FK_book_isbn` FOREIGN KEY (`transaction_book_isbn`) REFERENCES `book` (`book_isbn`),
+  ADD CONSTRAINT `FK_librarian_id` FOREIGN KEY (`transaction_librarian_id`) REFERENCES `librarian` (`librarian_id`),
+  ADD CONSTRAINT `FK_student_id` FOREIGN KEY (`transaction_student_id`) REFERENCES `student` (`student_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
