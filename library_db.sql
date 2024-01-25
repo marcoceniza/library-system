@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 25, 2024 at 01:13 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: Jan 25, 2024 at 11:46 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -48,8 +48,17 @@ CREATE TABLE `librarian` (
   `librarian_name` varchar(30) NOT NULL,
   `librarian_address` varchar(50) NOT NULL,
   `librarian_phone_number` int(11) NOT NULL,
-  `librarian_email` varchar(30) NOT NULL
+  `librarian_email` varchar(30) NOT NULL,
+  `librarian_password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `librarian`
+--
+
+INSERT INTO `librarian` (`librarian_id`, `librarian_name`, `librarian_address`, `librarian_phone_number`, `librarian_email`, `librarian_password`) VALUES
+(1, 'test', 'test', 123, 'test@gmail.com', '$2y$10$QLTfDdXefrSfTiSqh8op9uUuJ1eQo8eoY/9clmrDUxE8w2QDJpoGO'),
+(2, 'test2', 'test2', 456, 'test2@gmail.com', '$2y$10$BDyUNZ6MdUmgnhPtGNBX1.PPdT3XUUGV2lQMwz5lSD2QeOjkIcPFS');
 
 -- --------------------------------------------------------
 
@@ -126,7 +135,7 @@ ALTER TABLE `book`
 -- AUTO_INCREMENT for table `librarian`
 --
 ALTER TABLE `librarian`
-  MODIFY `librarian_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `librarian_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `student`

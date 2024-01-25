@@ -1,4 +1,4 @@
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue';
 import { defineStore } from 'pinia';
 import { useCustomStore } from './customStore';
 import axios from 'axios';
@@ -6,6 +6,8 @@ import axios from 'axios';
 export const useRegisterStore = defineStore('register', () => {
   const apiUrl = import.meta.env.VITE_APP_API_URL;
   const customStore = useCustomStore();
+  const isLoading = ref(false);
+  const login = reactive({ email: '', password: '' });
   const register = reactive({
     name: '',
     address: '',
@@ -14,7 +16,24 @@ export const useRegisterStore = defineStore('register', () => {
     password: ''
   });
 
+  const loginHandler = async () => {
+    isLoading.value = true;
+
+    const formData = new FormData();
+    formData.append('email', login.email);
+    formData.append('password', login.password);
+
+    const res = await axios.post(apiUrl + '/login', formData);
+    customStore.toast(res.data.message, res.data.status);
+    if(res.data.status === 'error') return isLoading.value = false;
+
+    for (const key in login) login[key] = '';
+    isLoading.value = false;
+  }
+
   const registerHandler = async () => {
+    isLoading.value = true;
+
     const formData = new FormData();
     formData.append('name', register.name);
     formData.append('address', register.address);
@@ -24,9 +43,14 @@ export const useRegisterStore = defineStore('register', () => {
 
     const res = await axios.post(apiUrl + '/register', formData);
     customStore.toast(res.data.message, res.data.status);
+    if(res.data.status === 'error') return isLoading.value = false;
 
     for (const key in register) register[key] = '';
+    isLoading.value = false;
   }
 
-  return { apiUrl, register, registerHandler }
+  return {
+    apiUrl, register, registerHandler, loginHandler,
+    login, isLoading
+  }
 })

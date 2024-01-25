@@ -7,12 +7,36 @@ use App\Models\RegisterModel;
 
 class Register extends BaseController
 {
-    // protected $registerModel;
+    public function login() {
+        try {
+            $model = model(RegisterModel::class);
 
-    // public function __construct() {
-    //     parent::__construct();
-    //     $this->registerModel = new RegisterModel();
-    // }
+            $post = $this->request->getPost(['email', 'password']);
+
+            foreach($post as $value) {
+                if(empty($value)) throw new \Exception('All fields are required');
+            }
+
+            $data = $model->asArray()->where('librarian_email', $post['email'])->first();
+
+            if(!$data) throw new \Exception('Email does not exist');
+
+            if(password_verify($post['password'], $data['librarian_password'])) {
+                return $this->response->setJSON([
+                    'status' => 'success',
+                    'message' => 'Login Successfully'
+                ]);
+            }else {
+                throw new \Exception('Password is Incorrect');
+            }
+
+        }catch(\Exception $error) {
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => $error->getMessage()
+            ]);
+        }
+    }
 
     public function register() {
         try {

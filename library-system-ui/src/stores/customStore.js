@@ -12,9 +12,9 @@ export const useCustomStore = defineStore('custom', () => {
     }
 
     const toast = (message, type) => {
-        if(type == 'success') $toast.success(message, { position: 'top-right', duration: 4000 });
-        else if(type == 'info') $toast.info(message, { position: 'top-right', duration: 4000 });
-        else $toast.error(message, { position: 'top-right', duration: 4000 });
+        if(type == 'success') $toast.success(message, { position: 'top-left', duration: 4000 });
+        else if(type == 'info') $toast.info(message, { position: 'top-left', duration: 4000 });
+        else $toast.error(message, { position: 'top-left', duration: 4000 });
     }
 
     return {
