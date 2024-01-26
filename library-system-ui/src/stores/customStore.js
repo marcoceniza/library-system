@@ -2,11 +2,13 @@ import { ref } from 'vue';
 import { defineStore } from 'pinia';
 import { useToast } from 'vue-toast-notification';
 import 'vue-toast-notification/dist/theme-sugar.css';
+import { useRoute } from 'vue-router';
 
 export const useCustomStore = defineStore('custom', () => {
     const isShowPass = ref(false);
     const isShowMenu = ref(false);
     const $toast = useToast();
+    const route = useRoute();
 
     const showPassHandler = () => {
         isShowPass.value = !isShowPass.value;
@@ -22,8 +24,12 @@ export const useCustomStore = defineStore('custom', () => {
         isShowMenu.value = !isShowMenu.value
     }
 
+    const isRoute = (path) => {
+        return route.path === path;
+    };
+
     return {
         isShowPass, showPassHandler, toast, isShowMenu,
-        toggleUser
+        toggleUser, isRoute
     }
 })

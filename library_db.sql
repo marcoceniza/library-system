@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 25, 2024 at 11:46 PM
+-- Generation Time: Jan 27, 2024 at 12:20 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -29,13 +29,21 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `book` (
   `book_isbn` int(11) NOT NULL,
-  `book_title` varchar(30) NOT NULL,
-  `book_author` int(20) NOT NULL,
-  `book_genre` int(20) NOT NULL,
+  `book_title` varchar(60) NOT NULL,
+  `book_author` varchar(30) NOT NULL,
+  `book_genre` varchar(30) NOT NULL,
   `book_published_year` datetime NOT NULL,
   `book_copies_available` int(11) NOT NULL,
   `book_total_copies` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `book`
+--
+
+INSERT INTO `book` (`book_isbn`, `book_title`, `book_author`, `book_genre`, `book_published_year`, `book_copies_available`, `book_total_copies`) VALUES
+(1, 'Html5 and Css3 Responsive Web Design Cookbook', 'Benjamin LaGrone', 'Programming', '2024-01-26 23:24:18', 3, 5),
+(2, 'Responsive Web Design with jQuery', 'Gilberto Carlos', 'Programming', '2024-01-26 23:25:30', 2, 8);
 
 -- --------------------------------------------------------
 
@@ -129,7 +137,7 @@ ALTER TABLE `transaction`
 -- AUTO_INCREMENT for table `book`
 --
 ALTER TABLE `book`
-  MODIFY `book_isbn` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `book_isbn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `librarian`

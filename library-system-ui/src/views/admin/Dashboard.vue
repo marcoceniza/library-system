@@ -2,7 +2,7 @@
     <div class="relative">
         <Header />
         <div class="flex">
-            <section class="h-[100vh] w-[200px] bg-[#eee]">
+            <section class="h-[100vh] w-[250px] border border-r-[#e3e3e3]">
                 <Sidebar />
             </section>
             <section class="w-full p-5 pt-4">
@@ -22,11 +22,16 @@
                     </section>
                 </div>
                 <h3 class="mb-4">Dashboard</h3>
-                <DataTable :data="data" class="display table table-striped">
+                <DataTable :data="bookStore.datas" :columns="columns" class="display table table-striped">
                     <thead>
                         <tr>
-                            <th>A</th>
-                            <th>B</th>
+                            <th>Book ISBN</th>
+                            <th>Book Title</th>
+                            <th>Book Author</th>
+                            <th>Book Genre</th>
+                            <th>Book Published Year</th>
+                            <th>Book Copies Available</th>
+                            <th>Book Total Copies</th>
                         </tr>
                     </thead>
                 </DataTable>
@@ -36,22 +41,25 @@
 </template>
 
 <script setup>
+import { HomeIcon } from '@heroicons/vue/24/solid';
 import Header from '@/components/Header.vue';
 import Sidebar from '@/components/Sidebar.vue';
 import DataTable from 'datatables.net-vue3';
 import DataTablesCore from 'datatables.net-bs5';
+import { useBookStore } from '@/stores/bookStore';
  
 DataTable.use(DataTablesCore);
-import { HomeIcon } from '@heroicons/vue/24/solid';
-// import { useCustomStore } from '@/stores/customStore';
-// import { useRegisterStore } from '@/stores/registerStore';
 
-// const customStore = useCustomStore();
-// const registerStore = useRegisterStore();
+const bookStore = useBookStore();
 
-const data = [
-  [1, 2],
-  [3, 4],
+const columns = [
+  { data: 'book_isbn' },
+  { data: 'book_title' },
+  { data: 'book_author' },
+  { data: 'book_genre' },
+  { data: 'book_published_year' },
+  { data: 'book_copies_available' },
+  { data: 'book_total_copies' },
 ];
 
 </script>
