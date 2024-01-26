@@ -5,6 +5,7 @@ import 'vue-toast-notification/dist/theme-sugar.css';
 
 export const useCustomStore = defineStore('custom', () => {
     const isShowPass = ref(false);
+    const isShowMenu = ref(false);
     const $toast = useToast();
 
     const showPassHandler = () => {
@@ -17,7 +18,12 @@ export const useCustomStore = defineStore('custom', () => {
         else $toast.error(message, { position: 'top-left', duration: 4000 });
     }
 
+    const toggleUser = () => {
+        isShowMenu.value = !isShowMenu.value
+    }
+
     return {
-        isShowPass, showPassHandler, toast
+        isShowPass, showPassHandler, toast, isShowMenu,
+        toggleUser
     }
 })
