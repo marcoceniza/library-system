@@ -15,9 +15,9 @@ export const useCustomStore = defineStore('custom', () => {
     }
 
     const toast = (message, type) => {
-        if(type == 'success') $toast.success(message, { position: 'top-left', duration: 4000 });
-        else if(type == 'info') $toast.info(message, { position: 'top-left', duration: 4000 });
-        else $toast.error(message, { position: 'top-left', duration: 4000 });
+        if(type == 'success') $toast.success(message, { position: 'top-right', duration: 4000 });
+        else if(type == 'info') $toast.info(message, { position: 'top-right', duration: 4000 });
+        else $toast.error(message, { position: 'top-right', duration: 4000 });
     }
 
     const toggleUser = () => {
@@ -28,8 +28,23 @@ export const useCustomStore = defineStore('custom', () => {
         return route.path === path;
     };
 
+    const formatDate = (inputDate) => {
+        const months = [
+          "January", "February", "March", "April", "May", "June",
+          "July", "August", "September", "October", "November", "December"
+        ];
+      
+        const date = new Date(inputDate);
+        const monthName = months[date.getMonth()];
+        const day = date.getDate();
+        const year = date.getFullYear();
+      
+        const formattedDate = `${monthName} ${day}, ${year}`;
+        return formattedDate;
+    }
+
     return {
         isShowPass, showPassHandler, toast, isShowMenu,
-        toggleUser, isRoute
+        toggleUser, isRoute, formatDate
     }
 })

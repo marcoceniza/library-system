@@ -11,3 +11,7 @@ $routes->post('register', 'Register::register');
 
 // book
 $routes->get('fetchBook', 'Book::fetchBook');
+$routes->get('fetchGenre', 'Book::fetchGenre');
+$routes->post('addBook', 'Book::addBook');
+$routes->post('updateBook', 'Book::updateBook');
+$routes->post('deleteBook', 'Book::deleteBook');

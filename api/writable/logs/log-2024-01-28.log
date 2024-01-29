@@ -1,0 +1,138 @@
+ERROR - 2024-01-28 07:32:58 --> mysqli_sql_exception: Unknown column 'book.id' in 'where clause' in C:\Users\marka\OneDrive\Desktop\CI Prac\2024\library-system\api\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\Users\marka\OneDrive\Desktop\CI Prac\2024\library-system\api\system\Database\MySQLi\Connection.php(306): mysqli->query('UPDATE `book` S...', 0)
+#1 C:\Users\marka\OneDrive\Desktop\CI Prac\2024\library-system\api\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `book` S...')
+#2 C:\Users\marka\OneDrive\Desktop\CI Prac\2024\library-system\api\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `book` S...')
+#3 C:\Users\marka\OneDrive\Desktop\CI Prac\2024\library-system\api\system\Database\BaseBuilder.php(2469): CodeIgniter\Database\BaseConnection->query('UPDATE `book` S...', Array, false)
+#4 C:\Users\marka\OneDrive\Desktop\CI Prac\2024\library-system\api\system\Model.php(393): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\Users\marka\OneDrive\Desktop\CI Prac\2024\library-system\api\system\BaseModel.php(987): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\Users\marka\OneDrive\Desktop\CI Prac\2024\library-system\api\system\Model.php(807): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\Users\marka\OneDrive\Desktop\CI Prac\2024\library-system\api\app\Models\BookModel.php(23): CodeIgniter\Model->update('4', Array)
+#8 C:\Users\marka\OneDrive\Desktop\CI Prac\2024\library-system\api\app\Controllers\Book.php(112): App\Models\BookModel->updateBook('4', Array)
+#9 C:\Users\marka\OneDrive\Desktop\CI Prac\2024\library-system\api\system\CodeIgniter.php(941): App\Controllers\Book->updateBook()
+#10 C:\Users\marka\OneDrive\Desktop\CI Prac\2024\library-system\api\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Book))
+#11 C:\Users\marka\OneDrive\Desktop\CI Prac\2024\library-system\api\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\Users\marka\OneDrive\Desktop\CI Prac\2024\library-system\api\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#13 C:\Users\marka\OneDrive\Desktop\CI Prac\2024\library-system\api\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\marka\\...')
+#14 {main}
+CRITICAL - 2024-01-28 07:32:58 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'book.id' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2469): CodeIgniter\Database\BaseConnection->query('UPDATE `book` SET `book_title` = :book_title:, `book_author` = :book_author:, `book_genre` = :book_genre:, `book_published_year` = :book_published_year:, `book_copies_available` = :book_copies_available:, `book_total_copies` = :book_total_copies:
+WHERE `book`.`id` IN :book.id:', [...], false)
+ 2 SYSTEMPATH\Model.php(393): CodeIgniter\Database\BaseBuilder->update()
+ 3 SYSTEMPATH\BaseModel.php(987): CodeIgniter\Model->doUpdate([...], [...])
+ 4 SYSTEMPATH\Model.php(807): CodeIgniter\BaseModel->update([...], [...])
+ 5 APPPATH\Models\BookModel.php(23): CodeIgniter\Model->update('4', [...])
+ 6 APPPATH\Controllers\Book.php(112): App\Models\BookModel->updateBook('4', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Book->updateBook()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Book))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\marka\\OneDrive\\Desktop\\CI Prac\\2024\\library-system\\api\\public\\index.php')
+CRITICAL - 2024-01-28 07:32:58 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'book.id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `book` SET `book_title` = \'test2\', `book_author` = \'test2\', `book_genre` = \'Programming\', `book_published_year` = \'January 12, 2024\', `book_copies_available` = \'3\', `book_total_copies` = \'6\'
+WHERE `book`.`id` IN (\'4\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `book` SET `book_title` = \'test2\', `book_author` = \'test2\', `book_genre` = \'Programming\', `book_published_year` = \'January 12, 2024\', `book_copies_available` = \'3\', `book_total_copies` = \'6\'
+WHERE `book`.`id` IN (\'4\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2469): CodeIgniter\Database\BaseConnection->query('UPDATE `book` SET `book_title` = :book_title:, `book_author` = :book_author:, `book_genre` = :book_genre:, `book_published_year` = :book_published_year:, `book_copies_available` = :book_copies_available:, `book_total_copies` = :book_total_copies:
+WHERE `book`.`id` IN :book.id:', [...], false)
+ 4 SYSTEMPATH\Model.php(393): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\BaseModel.php(987): CodeIgniter\Model->doUpdate([...], [...])
+ 6 SYSTEMPATH\Model.php(807): CodeIgniter\BaseModel->update([...], [...])
+ 7 APPPATH\Models\BookModel.php(23): CodeIgniter\Model->update('4', [...])
+ 8 APPPATH\Controllers\Book.php(112): App\Models\BookModel->updateBook('4', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Book->updateBook()
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Book))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\marka\\OneDrive\\Desktop\\CI Prac\\2024\\library-system\\api\\public\\index.php')
+CRITICAL - 2024-01-28 07:32:58 --> [Caused by] mysqli_sql_exception: Unknown column 'book.id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('UPDATE `book` SET `book_title` = \'test2\', `book_author` = \'test2\', `book_genre` = \'Programming\', `book_published_year` = \'January 12, 2024\', `book_copies_available` = \'3\', `book_total_copies` = \'6\'
+WHERE `book`.`id` IN (\'4\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `book` SET `book_title` = \'test2\', `book_author` = \'test2\', `book_genre` = \'Programming\', `book_published_year` = \'January 12, 2024\', `book_copies_available` = \'3\', `book_total_copies` = \'6\'
+WHERE `book`.`id` IN (\'4\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `book` SET `book_title` = \'test2\', `book_author` = \'test2\', `book_genre` = \'Programming\', `book_published_year` = \'January 12, 2024\', `book_copies_available` = \'3\', `book_total_copies` = \'6\'
+WHERE `book`.`id` IN (\'4\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2469): CodeIgniter\Database\BaseConnection->query('UPDATE `book` SET `book_title` = :book_title:, `book_author` = :book_author:, `book_genre` = :book_genre:, `book_published_year` = :book_published_year:, `book_copies_available` = :book_copies_available:, `book_total_copies` = :book_total_copies:
+WHERE `book`.`id` IN :book.id:', [...], false)
+ 5 SYSTEMPATH\Model.php(393): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(987): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(807): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Models\BookModel.php(23): CodeIgniter\Model->update('4', [...])
+ 9 APPPATH\Controllers\Book.php(112): App\Models\BookModel->updateBook('4', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Book->updateBook()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Book))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\marka\\OneDrive\\Desktop\\CI Prac\\2024\\library-system\\api\\public\\index.php')
+ERROR - 2024-01-28 07:35:22 --> mysqli_sql_exception: Unknown column 'book.id' in 'where clause' in C:\Users\marka\OneDrive\Desktop\CI Prac\2024\library-system\api\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\Users\marka\OneDrive\Desktop\CI Prac\2024\library-system\api\system\Database\MySQLi\Connection.php(306): mysqli->query('UPDATE `book` S...', 0)
+#1 C:\Users\marka\OneDrive\Desktop\CI Prac\2024\library-system\api\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `book` S...')
+#2 C:\Users\marka\OneDrive\Desktop\CI Prac\2024\library-system\api\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `book` S...')
+#3 C:\Users\marka\OneDrive\Desktop\CI Prac\2024\library-system\api\system\Database\BaseBuilder.php(2469): CodeIgniter\Database\BaseConnection->query('UPDATE `book` S...', Array, false)
+#4 C:\Users\marka\OneDrive\Desktop\CI Prac\2024\library-system\api\system\Model.php(393): CodeIgniter\Database\BaseBuilder->update()
+#5 C:\Users\marka\OneDrive\Desktop\CI Prac\2024\library-system\api\system\BaseModel.php(987): CodeIgniter\Model->doUpdate(Array, Array)
+#6 C:\Users\marka\OneDrive\Desktop\CI Prac\2024\library-system\api\system\Model.php(807): CodeIgniter\BaseModel->update(Array, Array)
+#7 C:\Users\marka\OneDrive\Desktop\CI Prac\2024\library-system\api\app\Models\BookModel.php(23): CodeIgniter\Model->update('4', Array)
+#8 C:\Users\marka\OneDrive\Desktop\CI Prac\2024\library-system\api\app\Controllers\Book.php(112): App\Models\BookModel->updateBook('4', Array)
+#9 C:\Users\marka\OneDrive\Desktop\CI Prac\2024\library-system\api\system\CodeIgniter.php(941): App\Controllers\Book->updateBook()
+#10 C:\Users\marka\OneDrive\Desktop\CI Prac\2024\library-system\api\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Book))
+#11 C:\Users\marka\OneDrive\Desktop\CI Prac\2024\library-system\api\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\Users\marka\OneDrive\Desktop\CI Prac\2024\library-system\api\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#13 C:\Users\marka\OneDrive\Desktop\CI Prac\2024\library-system\api\system\Commands\Server\rewrite.php(47): require_once('C:\\Users\\marka\\...')
+#14 {main}
+CRITICAL - 2024-01-28 07:35:22 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'book.id' in 'where clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2469): CodeIgniter\Database\BaseConnection->query('UPDATE `book` SET `book_title` = :book_title:, `book_author` = :book_author:, `book_genre` = :book_genre:, `book_published_year` = :book_published_year:, `book_copies_available` = :book_copies_available:, `book_total_copies` = :book_total_copies:
+WHERE `book`.`id` IN :book.id:', [...], false)
+ 2 SYSTEMPATH\Model.php(393): CodeIgniter\Database\BaseBuilder->update()
+ 3 SYSTEMPATH\BaseModel.php(987): CodeIgniter\Model->doUpdate([...], [...])
+ 4 SYSTEMPATH\Model.php(807): CodeIgniter\BaseModel->update([...], [...])
+ 5 APPPATH\Models\BookModel.php(23): CodeIgniter\Model->update('4', [...])
+ 6 APPPATH\Controllers\Book.php(112): App\Models\BookModel->updateBook('4', [...])
+ 7 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Book->updateBook()
+ 8 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Book))
+ 9 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\marka\\OneDrive\\Desktop\\CI Prac\\2024\\library-system\\api\\public\\index.php')
+CRITICAL - 2024-01-28 07:35:22 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'book.id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `book` SET `book_title` = \'test2\', `book_author` = \'test2\', `book_genre` = \'Programming\', `book_published_year` = \'January 12, 2024\', `book_copies_available` = \'3\', `book_total_copies` = \'6\'
+WHERE `book`.`id` IN (\'4\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `book` SET `book_title` = \'test2\', `book_author` = \'test2\', `book_genre` = \'Programming\', `book_published_year` = \'January 12, 2024\', `book_copies_available` = \'3\', `book_total_copies` = \'6\'
+WHERE `book`.`id` IN (\'4\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2469): CodeIgniter\Database\BaseConnection->query('UPDATE `book` SET `book_title` = :book_title:, `book_author` = :book_author:, `book_genre` = :book_genre:, `book_published_year` = :book_published_year:, `book_copies_available` = :book_copies_available:, `book_total_copies` = :book_total_copies:
+WHERE `book`.`id` IN :book.id:', [...], false)
+ 4 SYSTEMPATH\Model.php(393): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\BaseModel.php(987): CodeIgniter\Model->doUpdate([...], [...])
+ 6 SYSTEMPATH\Model.php(807): CodeIgniter\BaseModel->update([...], [...])
+ 7 APPPATH\Models\BookModel.php(23): CodeIgniter\Model->update('4', [...])
+ 8 APPPATH\Controllers\Book.php(112): App\Models\BookModel->updateBook('4', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Book->updateBook()
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Book))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\marka\\OneDrive\\Desktop\\CI Prac\\2024\\library-system\\api\\public\\index.php')
+CRITICAL - 2024-01-28 07:35:22 --> [Caused by] mysqli_sql_exception: Unknown column 'book.id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('UPDATE `book` SET `book_title` = \'test2\', `book_author` = \'test2\', `book_genre` = \'Programming\', `book_published_year` = \'January 12, 2024\', `book_copies_available` = \'3\', `book_total_copies` = \'6\'
+WHERE `book`.`id` IN (\'4\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `book` SET `book_title` = \'test2\', `book_author` = \'test2\', `book_genre` = \'Programming\', `book_published_year` = \'January 12, 2024\', `book_copies_available` = \'3\', `book_total_copies` = \'6\'
+WHERE `book`.`id` IN (\'4\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `book` SET `book_title` = \'test2\', `book_author` = \'test2\', `book_genre` = \'Programming\', `book_published_year` = \'January 12, 2024\', `book_copies_available` = \'3\', `book_total_copies` = \'6\'
+WHERE `book`.`id` IN (\'4\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2469): CodeIgniter\Database\BaseConnection->query('UPDATE `book` SET `book_title` = :book_title:, `book_author` = :book_author:, `book_genre` = :book_genre:, `book_published_year` = :book_published_year:, `book_copies_available` = :book_copies_available:, `book_total_copies` = :book_total_copies:
+WHERE `book`.`id` IN :book.id:', [...], false)
+ 5 SYSTEMPATH\Model.php(393): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(987): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(807): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Models\BookModel.php(23): CodeIgniter\Model->update('4', [...])
+ 9 APPPATH\Controllers\Book.php(112): App\Models\BookModel->updateBook('4', [...])
+10 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Book->updateBook()
+11 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Book))
+12 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\marka\\OneDrive\\Desktop\\CI Prac\\2024\\library-system\\api\\public\\index.php')

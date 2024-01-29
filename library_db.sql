@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 27, 2024 at 12:20 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Jan 29, 2024 at 10:52 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -43,7 +43,27 @@ CREATE TABLE `book` (
 
 INSERT INTO `book` (`book_isbn`, `book_title`, `book_author`, `book_genre`, `book_published_year`, `book_copies_available`, `book_total_copies`) VALUES
 (1, 'Html5 and Css3 Responsive Web Design Cookbook', 'Benjamin LaGrone', 'Programming', '2024-01-26 23:24:18', 3, 5),
-(2, 'Responsive Web Design with jQuery', 'Gilberto Carlos', 'Programming', '2024-01-26 23:25:30', 2, 8);
+(2, 'Responsive Web Design with jQuery', 'Gilberto Carlos', 'Programming', '2024-01-26 23:25:30', 2, 8),
+(7, 'test3', 'test3', 'Programming', '0000-00-00 00:00:00', 5, 10);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `genre`
+--
+
+CREATE TABLE `genre` (
+  `genre_id` int(11) NOT NULL,
+  `genre_name` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `genre`
+--
+
+INSERT INTO `genre` (`genre_id`, `genre_name`) VALUES
+(1, 'Programming'),
+(2, 'Data Science');
 
 -- --------------------------------------------------------
 
@@ -109,6 +129,12 @@ ALTER TABLE `book`
   ADD PRIMARY KEY (`book_isbn`);
 
 --
+-- Indexes for table `genre`
+--
+ALTER TABLE `genre`
+  ADD PRIMARY KEY (`genre_id`);
+
+--
 -- Indexes for table `librarian`
 --
 ALTER TABLE `librarian`
@@ -137,7 +163,13 @@ ALTER TABLE `transaction`
 -- AUTO_INCREMENT for table `book`
 --
 ALTER TABLE `book`
-  MODIFY `book_isbn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `book_isbn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `genre`
+--
+ALTER TABLE `genre`
+  MODIFY `genre_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `librarian`
