@@ -9,7 +9,7 @@
                 </div>
                 <div class="mb-2 relative">
                     <LockClosedIcon class="h-5 w-5 text-[#a4a4a4] absolute top-[15px] left-[10px]" />
-                    <input :type="customStore.isShowPass ? 'text' : 'password'" v-model="registerStore.login.password" placeholder="Enter password" class="block w-full border rounded-[30px] py-3 pl-8">
+                    <input @keydown.enter="registerStore.loginHandler" :type="customStore.isShowPass ? 'text' : 'password'" v-model="registerStore.login.password" placeholder="Enter password" class="block w-full border rounded-[30px] py-3 pl-8">
                     <div v-show="registerStore.login.password.length > 0" class="absolute top-[14px] right-[12px]">
                         <EyeIcon v-if="!customStore.isShowPass" @click="customStore.showPassHandler" class="h-5 w-5 text-[#a4a4a4] absolute right-0 cursor-pointer" />
                         <EyeSlashIcon v-else @click="customStore.showPassHandler" class="h-5 w-5 text-[#a4a4a4] absolute right-0 cursor-pointer" />

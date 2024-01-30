@@ -24,7 +24,8 @@ class Register extends BaseController
             if(password_verify($post['password'], $data['librarian_password'])) {
                 return $this->response->setJSON([
                     'status' => 'success',
-                    'message' => 'Login Successfully'
+                    'message' => 'Login Successfully',
+                    'result' => $data
                 ]);
             }else {
                 throw new \Exception('Password is Incorrect');

@@ -1,5 +1,5 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import LoginView from '../views/LoginView.vue'
+import { createRouter, createWebHistory } from 'vue-router';
+import LoginView from '../views/LoginView.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -18,18 +18,27 @@ const router = createRouter({
       path: '/dashboard',
       name: 'DashboardView',
       component: () => import('../views/admin/Dashboard.vue'),
+      beforeEnter: (to, from, next) => {
+        localStorage.getItem('user_info') ? next() : next('/');
+      },
     },
     {
       path: '/student',
       name: 'StudentView',
       component: () => import('../views/admin/Student.vue'),
+      beforeEnter: (to, from, next) => {
+        localStorage.getItem('user_info') ? next() : next('/');
+      },
     },
     {
       path: '/librarian',
       name: 'LibrarianView',
       component: () => import('../views/admin/Librarian.vue'),
+      beforeEnter: (to, from, next) => {
+        localStorage.getItem('user_info') ? next() : next('/');
+      },
     }
   ]
-})
+});
 
 export default router

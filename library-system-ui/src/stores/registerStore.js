@@ -2,12 +2,14 @@ import { reactive, ref } from 'vue';
 import { defineStore } from 'pinia';
 import { useCustomStore } from './customStore';
 import axios from 'axios';
+import { useRouter } from 'vue-router';
 
 export const useRegisterStore = defineStore('register', () => {
   const apiUrl = import.meta.env.VITE_APP_API_URL;
   const customStore = useCustomStore();
   const isLoading = ref(false);
   const login = reactive({ email: '', password: '' });
+  const router = useRouter();
   const register = reactive({
     name: '',
     address: '',
@@ -26,6 +28,8 @@ export const useRegisterStore = defineStore('register', () => {
     const res = await axios.post(apiUrl + '/login', formData);
     customStore.toast(res.data.message, res.data.status);
     if(res.data.status === 'error') return isLoading.value = false;
+    localStorage.setItem('user_info', JSON.stringify(res.data.result));
+    router.push('/dashboard');
 
     for (const key in login) login[key] = '';
     isLoading.value = false;
@@ -51,6 +55,6 @@ export const useRegisterStore = defineStore('register', () => {
 
   return {
     apiUrl, register, registerHandler, loginHandler,
-    login, isLoading
+    login, isLoading, router
   }
 })
