@@ -1,0 +1,406 @@
+ERROR - 2024-01-31 18:39:27 --> mysqli_sql_exception: Table 'library_db.genre' doesn't exist in D:\NS Dev\2024\library-system\api\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\NS Dev\2024\library-system\api\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 D:\NS Dev\2024\library-system\api\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 D:\NS Dev\2024\library-system\api\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 D:\NS Dev\2024\library-system\api\system\Database\BaseBuilder.php(1613): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\NS Dev\2024\library-system\api\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\NS Dev\2024\library-system\api\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\NS Dev\2024\library-system\api\app\Models\GenreModel.php(13): CodeIgniter\BaseModel->findAll()
+#7 D:\NS Dev\2024\library-system\api\app\Controllers\Book.php(39): App\Models\GenreModel->fetchGenre()
+#8 D:\NS Dev\2024\library-system\api\system\CodeIgniter.php(941): App\Controllers\Book->fetchGenre()
+#9 D:\NS Dev\2024\library-system\api\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Book))
+#10 D:\NS Dev\2024\library-system\api\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\NS Dev\2024\library-system\api\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 D:\NS Dev\2024\library-system\api\system\Commands\Server\rewrite.php(47): require_once('D:\\NS Dev\\2024\\...')
+#13 {main}
+CRITICAL - 2024-01-31 18:39:27 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'library_db.genre' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1613): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `genre`', [], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\GenreModel.php(13): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Book.php(39): App\Models\GenreModel->fetchGenre()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Book->fetchGenre()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Book))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\NS Dev\\2024\\library-system\\api\\public\\index.php')
+CRITICAL - 2024-01-31 18:39:27 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'library_db.genre' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `genre`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `genre`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1613): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `genre`', [], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\GenreModel.php(13): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Book.php(39): App\Models\GenreModel->fetchGenre()
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Book->fetchGenre()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Book))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\NS Dev\\2024\\library-system\\api\\public\\index.php')
+CRITICAL - 2024-01-31 18:39:27 --> [Caused by] mysqli_sql_exception: Table 'library_db.genre' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `genre`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `genre`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `genre`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1613): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `genre`', [], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\GenreModel.php(13): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Book.php(39): App\Models\GenreModel->fetchGenre()
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Book->fetchGenre()
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Book))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\NS Dev\\2024\\library-system\\api\\public\\index.php')
+ERROR - 2024-01-31 18:41:15 --> mysqli_sql_exception: Table 'library_db.genre' doesn't exist in D:\NS Dev\2024\library-system\api\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\NS Dev\2024\library-system\api\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 D:\NS Dev\2024\library-system\api\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 D:\NS Dev\2024\library-system\api\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 D:\NS Dev\2024\library-system\api\system\Database\BaseBuilder.php(1613): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\NS Dev\2024\library-system\api\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\NS Dev\2024\library-system\api\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\NS Dev\2024\library-system\api\app\Models\GenreModel.php(13): CodeIgniter\BaseModel->findAll()
+#7 D:\NS Dev\2024\library-system\api\app\Controllers\Book.php(39): App\Models\GenreModel->fetchGenre()
+#8 D:\NS Dev\2024\library-system\api\system\CodeIgniter.php(941): App\Controllers\Book->fetchGenre()
+#9 D:\NS Dev\2024\library-system\api\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Book))
+#10 D:\NS Dev\2024\library-system\api\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\NS Dev\2024\library-system\api\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 D:\NS Dev\2024\library-system\api\system\Commands\Server\rewrite.php(47): require_once('D:\\NS Dev\\2024\\...')
+#13 {main}
+CRITICAL - 2024-01-31 18:41:16 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'library_db.genre' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1613): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `genre`', [], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\GenreModel.php(13): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Book.php(39): App\Models\GenreModel->fetchGenre()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Book->fetchGenre()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Book))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\NS Dev\\2024\\library-system\\api\\public\\index.php')
+CRITICAL - 2024-01-31 18:41:16 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'library_db.genre' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `genre`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `genre`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1613): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `genre`', [], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\GenreModel.php(13): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Book.php(39): App\Models\GenreModel->fetchGenre()
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Book->fetchGenre()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Book))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\NS Dev\\2024\\library-system\\api\\public\\index.php')
+CRITICAL - 2024-01-31 18:41:16 --> [Caused by] mysqli_sql_exception: Table 'library_db.genre' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `genre`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `genre`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `genre`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1613): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `genre`', [], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\GenreModel.php(13): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Book.php(39): App\Models\GenreModel->fetchGenre()
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Book->fetchGenre()
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Book))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\NS Dev\\2024\\library-system\\api\\public\\index.php')
+ERROR - 2024-01-31 18:41:30 --> mysqli_sql_exception: Table 'library_db.genre' doesn't exist in D:\NS Dev\2024\library-system\api\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\NS Dev\2024\library-system\api\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 D:\NS Dev\2024\library-system\api\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 D:\NS Dev\2024\library-system\api\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 D:\NS Dev\2024\library-system\api\system\Database\BaseBuilder.php(1613): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\NS Dev\2024\library-system\api\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\NS Dev\2024\library-system\api\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\NS Dev\2024\library-system\api\app\Models\GenreModel.php(13): CodeIgniter\BaseModel->findAll()
+#7 D:\NS Dev\2024\library-system\api\app\Controllers\Book.php(39): App\Models\GenreModel->fetchGenre()
+#8 D:\NS Dev\2024\library-system\api\system\CodeIgniter.php(941): App\Controllers\Book->fetchGenre()
+#9 D:\NS Dev\2024\library-system\api\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Book))
+#10 D:\NS Dev\2024\library-system\api\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\NS Dev\2024\library-system\api\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 D:\NS Dev\2024\library-system\api\system\Commands\Server\rewrite.php(47): require_once('D:\\NS Dev\\2024\\...')
+#13 {main}
+CRITICAL - 2024-01-31 18:41:30 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'library_db.genre' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1613): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `genre`', [], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\GenreModel.php(13): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Book.php(39): App\Models\GenreModel->fetchGenre()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Book->fetchGenre()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Book))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\NS Dev\\2024\\library-system\\api\\public\\index.php')
+CRITICAL - 2024-01-31 18:41:30 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'library_db.genre' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `genre`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `genre`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1613): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `genre`', [], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\GenreModel.php(13): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Book.php(39): App\Models\GenreModel->fetchGenre()
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Book->fetchGenre()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Book))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\NS Dev\\2024\\library-system\\api\\public\\index.php')
+CRITICAL - 2024-01-31 18:41:30 --> [Caused by] mysqli_sql_exception: Table 'library_db.genre' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `genre`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `genre`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `genre`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1613): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `genre`', [], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\GenreModel.php(13): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Book.php(39): App\Models\GenreModel->fetchGenre()
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Book->fetchGenre()
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Book))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\NS Dev\\2024\\library-system\\api\\public\\index.php')
+ERROR - 2024-01-31 18:42:43 --> mysqli_sql_exception: Table 'library_db.genre' doesn't exist in D:\NS Dev\2024\library-system\api\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\NS Dev\2024\library-system\api\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 D:\NS Dev\2024\library-system\api\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 D:\NS Dev\2024\library-system\api\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 D:\NS Dev\2024\library-system\api\system\Database\BaseBuilder.php(1613): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\NS Dev\2024\library-system\api\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\NS Dev\2024\library-system\api\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\NS Dev\2024\library-system\api\app\Models\GenreModel.php(13): CodeIgniter\BaseModel->findAll()
+#7 D:\NS Dev\2024\library-system\api\app\Controllers\Book.php(39): App\Models\GenreModel->fetchGenre()
+#8 D:\NS Dev\2024\library-system\api\system\CodeIgniter.php(941): App\Controllers\Book->fetchGenre()
+#9 D:\NS Dev\2024\library-system\api\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Book))
+#10 D:\NS Dev\2024\library-system\api\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\NS Dev\2024\library-system\api\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 D:\NS Dev\2024\library-system\api\system\Commands\Server\rewrite.php(47): require_once('D:\\NS Dev\\2024\\...')
+#13 {main}
+CRITICAL - 2024-01-31 18:42:43 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'library_db.genre' doesn't exist
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1613): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `genre`', [], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\GenreModel.php(13): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Book.php(39): App\Models\GenreModel->fetchGenre()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Book->fetchGenre()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Book))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\NS Dev\\2024\\library-system\\api\\public\\index.php')
+CRITICAL - 2024-01-31 18:42:43 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'library_db.genre' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `genre`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `genre`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1613): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `genre`', [], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\GenreModel.php(13): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Book.php(39): App\Models\GenreModel->fetchGenre()
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Book->fetchGenre()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Book))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\NS Dev\\2024\\library-system\\api\\public\\index.php')
+CRITICAL - 2024-01-31 18:42:43 --> [Caused by] mysqli_sql_exception: Table 'library_db.genre' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `genre`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `genre`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `genre`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1613): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `genre`', [], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\GenreModel.php(13): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Book.php(39): App\Models\GenreModel->fetchGenre()
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Book->fetchGenre()
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Book))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\NS Dev\\2024\\library-system\\api\\public\\index.php')
+ERROR - 2024-01-31 21:33:17 --> mysqli_sql_exception: Unknown column 'transaction.transaction_book_isbn' in 'on clause' in D:\NS Dev\2024\library-system\api\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\NS Dev\2024\library-system\api\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 D:\NS Dev\2024\library-system\api\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 D:\NS Dev\2024\library-system\api\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 D:\NS Dev\2024\library-system\api\system\Database\BaseBuilder.php(1613): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\NS Dev\2024\library-system\api\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\NS Dev\2024\library-system\api\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\NS Dev\2024\library-system\api\app\Models\StudentModel.php(14): CodeIgniter\BaseModel->findAll()
+#7 D:\NS Dev\2024\library-system\api\app\Controllers\Student.php(14): App\Models\StudentModel->fetchStudent()
+#8 D:\NS Dev\2024\library-system\api\system\CodeIgniter.php(941): App\Controllers\Student->fetchStudent()
+#9 D:\NS Dev\2024\library-system\api\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#10 D:\NS Dev\2024\library-system\api\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\NS Dev\2024\library-system\api\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 D:\NS Dev\2024\library-system\api\system\Commands\Server\rewrite.php(47): require_once('D:\\NS Dev\\2024\\...')
+#13 {main}
+CRITICAL - 2024-01-31 21:33:17 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'transaction.transaction_book_isbn' in 'on clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1613): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `librarian`
+JOIN `book` ON `book`.`book_isbn` = `transaction`.`transaction_book_isbn`', [], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\StudentModel.php(14): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Student.php(14): App\Models\StudentModel->fetchStudent()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Student->fetchStudent()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\NS Dev\\2024\\library-system\\api\\public\\index.php')
+CRITICAL - 2024-01-31 21:33:17 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'transaction.transaction_book_isbn' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `librarian`
+JOIN `book` ON `book`.`book_isbn` = `transaction`.`transaction_book_isbn`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `librarian`
+JOIN `book` ON `book`.`book_isbn` = `transaction`.`transaction_book_isbn`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1613): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `librarian`
+JOIN `book` ON `book`.`book_isbn` = `transaction`.`transaction_book_isbn`', [], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\StudentModel.php(14): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Student.php(14): App\Models\StudentModel->fetchStudent()
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Student->fetchStudent()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\NS Dev\\2024\\library-system\\api\\public\\index.php')
+CRITICAL - 2024-01-31 21:33:17 --> [Caused by] mysqli_sql_exception: Unknown column 'transaction.transaction_book_isbn' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `librarian`
+JOIN `book` ON `book`.`book_isbn` = `transaction`.`transaction_book_isbn`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `librarian`
+JOIN `book` ON `book`.`book_isbn` = `transaction`.`transaction_book_isbn`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `librarian`
+JOIN `book` ON `book`.`book_isbn` = `transaction`.`transaction_book_isbn`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1613): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `librarian`
+JOIN `book` ON `book`.`book_isbn` = `transaction`.`transaction_book_isbn`', [], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\StudentModel.php(14): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Student.php(14): App\Models\StudentModel->fetchStudent()
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Student->fetchStudent()
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\NS Dev\\2024\\library-system\\api\\public\\index.php')
+ERROR - 2024-01-31 21:33:19 --> mysqli_sql_exception: Unknown column 'transaction.transaction_book_isbn' in 'on clause' in D:\NS Dev\2024\library-system\api\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 D:\NS Dev\2024\library-system\api\system\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *\nFROM `...', 0)
+#1 D:\NS Dev\2024\library-system\api\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 D:\NS Dev\2024\library-system\api\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 D:\NS Dev\2024\library-system\api\system\Database\BaseBuilder.php(1613): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\NS Dev\2024\library-system\api\system\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\NS Dev\2024\library-system\api\system\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\NS Dev\2024\library-system\api\app\Models\StudentModel.php(14): CodeIgniter\BaseModel->findAll()
+#7 D:\NS Dev\2024\library-system\api\app\Controllers\Student.php(14): App\Models\StudentModel->fetchStudent()
+#8 D:\NS Dev\2024\library-system\api\system\CodeIgniter.php(941): App\Controllers\Student->fetchStudent()
+#9 D:\NS Dev\2024\library-system\api\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+#10 D:\NS Dev\2024\library-system\api\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\NS Dev\2024\library-system\api\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#12 D:\NS Dev\2024\library-system\api\system\Commands\Server\rewrite.php(47): require_once('D:\\NS Dev\\2024\\...')
+#13 {main}
+CRITICAL - 2024-01-31 21:33:19 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'transaction.transaction_book_isbn' in 'on clause'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1613): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `librarian`
+JOIN `book` ON `book`.`book_isbn` = `transaction`.`transaction_book_isbn`', [], false)
+ 2 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH\Models\StudentModel.php(14): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH\Controllers\Student.php(14): App\Models\StudentModel->fetchStudent()
+ 6 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Student->fetchStudent()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\NS Dev\\2024\\library-system\\api\\public\\index.php')
+CRITICAL - 2024-01-31 21:33:19 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'transaction.transaction_book_isbn' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 311.
+ 1 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `librarian`
+JOIN `book` ON `book`.`book_isbn` = `transaction`.`transaction_book_isbn`')
+ 2 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `librarian`
+JOIN `book` ON `book`.`book_isbn` = `transaction`.`transaction_book_isbn`')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1613): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `librarian`
+JOIN `book` ON `book`.`book_isbn` = `transaction`.`transaction_book_isbn`', [], false)
+ 4 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH\Models\StudentModel.php(14): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH\Controllers\Student.php(14): App\Models\StudentModel->fetchStudent()
+ 8 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Student->fetchStudent()
+ 9 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+10 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\NS Dev\\2024\\library-system\\api\\public\\index.php')
+CRITICAL - 2024-01-31 21:33:19 --> [Caused by] mysqli_sql_exception: Unknown column 'transaction.transaction_book_isbn' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 306.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(306): mysqli->query('SELECT *
+FROM `librarian`
+JOIN `book` ON `book`.`book_isbn` = `transaction`.`transaction_book_isbn`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `librarian`
+JOIN `book` ON `book`.`book_isbn` = `transaction`.`transaction_book_isbn`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `librarian`
+JOIN `book` ON `book`.`book_isbn` = `transaction`.`transaction_book_isbn`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1613): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `librarian`
+JOIN `book` ON `book`.`book_isbn` = `transaction`.`transaction_book_isbn`', [], false)
+ 5 SYSTEMPATH\Model.php(242): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\BaseModel.php(638): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH\Models\StudentModel.php(14): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH\Controllers\Student.php(14): App\Models\StudentModel->fetchStudent()
+ 9 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Student->fetchStudent()
+10 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Student))
+11 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\NS Dev\\2024\\library-system\\api\\public\\index.php')
