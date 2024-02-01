@@ -20,7 +20,7 @@ class Student extends BaseController
                     'result' => $result
                 ]);
             }else {
-                throw new \Exception('Something went wrong');
+                throw new \Exception('No Data Found');
             }
 
         }catch(\Exception $error) {

@@ -30,14 +30,6 @@ const router = createRouter({
         localStorage.getItem('user_info') ? next() : next('/');
       },
     },
-    {
-      path: '/librarian',
-      name: 'LibrarianView',
-      component: () => import('../views/admin/Librarian.vue'),
-      beforeEnter: (to, from, next) => {
-        localStorage.getItem('user_info') ? next() : next('/');
-      },
-    }
   ]
 });
 

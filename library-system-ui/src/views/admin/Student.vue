@@ -22,6 +22,9 @@
                         </tr>
                     </thead>
                 </DataTable>
+
+                <!-- view student transaction -->
+                <ViewStudentTransaction @closeModal="transactionModal" v-show="showStudentTrasactionModal" :data="studentInfo" :stName="studentName" />
             </section>
         </div>
     </div>
@@ -31,14 +34,22 @@
 import { HomeIcon, PlusIcon } from '@heroicons/vue/24/solid';
 import Header from '@/components/Header.vue';
 import Sidebar from '@/components/Sidebar.vue';
+import ViewStudentTransaction from '@/components/student/ViewStudentTransaction.vue'
 import DataTable from 'datatables.net-vue3';
 import DataTablesCore from 'datatables.net-bs5';
 import { useStudentStore } from '@/stores/studentStore';
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
  
 DataTable.use(DataTablesCore);
 
 const studentStore = useStudentStore();
+const showStudentTrasactionModal = ref(false);
+const studentInfo = ref([]);
+const studentName = ref('');
+
+const transactionModal = () => {
+    showStudentTrasactionModal.value = !showStudentTrasactionModal.value;
+}
 
 const columns = [
     { data: 'student_id' },
@@ -50,7 +61,7 @@ const columns = [
         render: (data) => {
             return `
                 <div style="display: flex; justify-content: center; gap: 5px;">
-                    <button class="btn btn-warning btn-sm" data-action="view" data-row="${data}">View</button>
+                    <button class="btn btn-primary btn-sm" data-action="view" data-row="${data}">View</button>
                     <button class="btn btn-warning btn-sm" data-action="edit" data-row="${data}">Edit</button>
                     <button class="btn btn-danger btn-sm" data-action="delete" data-row="${data}">Delete</button>
                 </div>
@@ -65,7 +76,17 @@ onMounted(() => {
         let row = event.target.dataset.row;
 
         if(action === 'view') {
-            return row;
+            studentInfo.value = [];
+            studentName.value = '';
+            
+            studentStore.data.forEach(res => {
+                if(res.student_id === row) {
+                    studentInfo.value.push(res);
+                    studentName.value = res.student_name;
+                }
+            });
+
+            showStudentTrasactionModal.value = true;
         }else if(action === 'edit') {
             return true;
         }else if(action === 'delete') {

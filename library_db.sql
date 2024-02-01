@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 29, 2024 at 10:52 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: Feb 01, 2024 at 11:20 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -102,6 +102,14 @@ CREATE TABLE `student` (
   `student_email` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `student`
+--
+
+INSERT INTO `student` (`student_id`, `student_name`, `student_address`, `student_phone_number`, `student_email`) VALUES
+(1, 'John Doe', 'New York, City', 1234567890, 'john@gmail.com'),
+(2, 'Steph Curry', 'California, USA', 1234567890, 'steph@gmail.com');
+
 -- --------------------------------------------------------
 
 --
@@ -117,6 +125,14 @@ CREATE TABLE `transaction` (
   `transaction_due_date` datetime NOT NULL,
   `transaction_date_returned` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `transaction`
+--
+
+INSERT INTO `transaction` (`transaction_id`, `transaction_book_isbn`, `transaction_student_id`, `transaction_librarian_id`, `transaction_date_borrowed`, `transaction_due_date`, `transaction_date_returned`) VALUES
+(1, 1, 1, 1, '2024-02-01 17:53:50', '2024-02-01 17:53:50', '2024-02-01 17:53:50'),
+(2, 2, 2, 2, '2024-02-01 17:53:50', '2024-02-01 17:53:50', '2024-02-01 17:53:50');
 
 --
 -- Indexes for dumped tables
@@ -181,25 +197,13 @@ ALTER TABLE `librarian`
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `transaction`
---
-ALTER TABLE `transaction`
-  ADD CONSTRAINT `FK_book_isbn` FOREIGN KEY (`transaction_book_isbn`) REFERENCES `book` (`book_isbn`),
-  ADD CONSTRAINT `FK_librarian_id` FOREIGN KEY (`transaction_librarian_id`) REFERENCES `librarian` (`librarian_id`),
-  ADD CONSTRAINT `FK_student_id` FOREIGN KEY (`transaction_student_id`) REFERENCES `student` (`student_id`);
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

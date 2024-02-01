@@ -1,11 +1,9 @@
-import { ref, reactive } from 'vue';
+import { ref } from 'vue';
 import { defineStore } from 'pinia';
 import axios from 'axios';
-import { useCustomStore } from './customStore';
 
 export const useStudentStore = defineStore('student', () => {
   const apiUrl = import.meta.env.VITE_APP_API_URL;
-  const customStore = useCustomStore();
   const isLoading = ref(false);
   const data = ref([]);
 
