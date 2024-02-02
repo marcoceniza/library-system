@@ -44,9 +44,9 @@
                 <AddBook @closeModal="bookStore.showBookModal" v-show="bookStore.isShowBookModal" />
 
                 <!-- update book -->
-                <updateBook @closeModal="bookStore.showUpdateBookModal" :isbn="isbn" v-show="bookStore.isShowUpdateBookModal" />
+                <editBook @closeModal="bookStore.showeditBookModal" :isbn="isbn" v-show="bookStore.isShoweditBookModal" />
 
-                <!-- delete bok -->
+                <!-- delete book -->
                 <div v-show="bookStore.isShowDeleteBookModal" class="bg-[rgba(0,0,0,0.5)] fixed z-1 top-0 w-full h-[100vh] left-0 right-0 text-center">
                     <div class="mt-[60px] mx-auto w-[500px] max-w-full bg-[#535353] rounded-[6px] py-[20px] relative">
                         <p class="text-white pb-[20px] text-[20px]">Are you sure you want to delete?</p>
@@ -66,7 +66,7 @@ import { HomeIcon, PlusIcon } from '@heroicons/vue/24/solid';
 import Header from '@/components/Header.vue';
 import Sidebar from '@/components/Sidebar.vue';
 import AddBook from '../../components/book/AddBook.vue';
-import updateBook from '../../components/book/EditBook.vue';
+import editBook from '../../components/book/EditBook.vue';
 import DataTable from 'datatables.net-vue3';
 import DataTablesCore from 'datatables.net-bs5';
 import { useBookStore } from '@/stores/bookStore';
@@ -113,16 +113,16 @@ onMounted(() => {
             bookStore.data.forEach(res => {
                 if(res.book_isbn === row) {
                     isbn.value = res.book_isbn;
-                    bookStore.updateBook.title = res.book_title;
-                    bookStore.updateBook.author = res.book_author;
-                    bookStore.updateBook.genre = res.book_genre;
-                    bookStore.updateBook.publishedYear = customStore.formatDate(res.book_published_year);
-                    bookStore.updateBook.copiesAvailable = res.book_copies_available;
-                    bookStore.updateBook.totalCopies = res.book_total_copies;
+                    bookStore.editBook.title = res.book_title;
+                    bookStore.editBook.author = res.book_author;
+                    bookStore.editBook.genre = res.book_genre;
+                    bookStore.editBook.publishedYear = customStore.formatDate(res.book_published_year);
+                    bookStore.editBook.copiesAvailable = res.book_copies_available;
+                    bookStore.editBook.totalCopies = res.book_total_copies;
                 }
             });
 
-            bookStore.isShowUpdateBookModal = true;
+            bookStore.isShoweditBookModal = true;
         }else if(action === 'delete') {
             id.value = row;
             bookStore.isShowDeleteBookModal = true;

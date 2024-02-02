@@ -23,8 +23,19 @@
                     </thead>
                 </DataTable>
 
-                <!-- view student transaction -->
-                <ViewStudentTransaction @closeModal="transactionModal" v-show="showStudentTrasactionModal" :data="studentInfo" :stName="studentName" />
+                <!-- view student -->
+                <ViewStudentTransaction @closeModal="viewTransactionModal" v-show="showViewTrasactionModal" :data="studentInfo" :stName="studentName" />
+
+                <!-- delete student transaction -->
+                <div v-show="bookStore.isShowDeleteBookModal" class="bg-[rgba(0,0,0,0.5)] fixed z-1 top-0 w-full h-[100vh] left-0 right-0 text-center">
+                    <div class="mt-[60px] mx-auto w-[500px] max-w-full bg-[#535353] rounded-[6px] py-[20px] relative">
+                        <p class="text-white pb-[20px] text-[20px]">Are you sure you want to delete?</p>
+                        <div class="flex justify-center gap-2">
+                            <button @click="bookStore.deleteBookHandler(id)" :class="{ 'opacity-[0.5]': bookStore.isbookLoader }" class="btn btn-danger" :disabled="bookStore.isbookLoader">{{ bookStore.isbookLoader ? 'Deleting...' : 'Delete' }}</button>
+                            <button @click="bookStore.isShowDeleteBookModal = false" class="btn btn-secondary">Cancel</button>
+                        </div>
+                    </div>
+                </div>
             </section>
         </div>
     </div>
@@ -34,7 +45,7 @@
 import { HomeIcon, PlusIcon } from '@heroicons/vue/24/solid';
 import Header from '@/components/Header.vue';
 import Sidebar from '@/components/Sidebar.vue';
-import ViewStudentTransaction from '@/components/student/ViewStudentTransaction.vue'
+import ViewStudentTransaction from '@/components/student/ViewStudentTransaction.vue';
 import DataTable from 'datatables.net-vue3';
 import DataTablesCore from 'datatables.net-bs5';
 import { useStudentStore } from '@/stores/studentStore';
@@ -43,12 +54,12 @@ import { onMounted, ref } from 'vue';
 DataTable.use(DataTablesCore);
 
 const studentStore = useStudentStore();
-const showStudentTrasactionModal = ref(false);
+const showViewTrasactionModal = ref(false);
 const studentInfo = ref([]);
 const studentName = ref('');
 
-const transactionModal = () => {
-    showStudentTrasactionModal.value = !showStudentTrasactionModal.value;
+const viewTransactionModal = () => {
+    showViewTrasactionModal.value = !showViewTrasactionModal.value;
 }
 
 const columns = [
@@ -62,7 +73,6 @@ const columns = [
             return `
                 <div style="display: flex; justify-content: center; gap: 5px;">
                     <button class="btn btn-primary btn-sm" data-action="view" data-row="${data}">View</button>
-                    <button class="btn btn-warning btn-sm" data-action="edit" data-row="${data}">Edit</button>
                     <button class="btn btn-danger btn-sm" data-action="delete" data-row="${data}">Delete</button>
                 </div>
             `;
@@ -86,9 +96,7 @@ onMounted(() => {
                 }
             });
 
-            showStudentTrasactionModal.value = true;
-        }else if(action === 'edit') {
-            return true;
+            showViewTrasactionModal.value = true;
         }else if(action === 'delete') {
             return true;
         }
