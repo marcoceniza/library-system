@@ -22,3 +22,6 @@ $routes->post('deleteBook', 'Book::deleteBook');
 // student
 $routes->get('fetchSingleStudent', 'Student::fetchSingleStudent');
 $routes->get('fetchStudent', 'Student::fetchStudent');
+
+// transaction
+$routes->get('fetchTransaction', 'Transaction::fetchTransaction');

@@ -30,6 +30,14 @@ const router = createRouter({
         localStorage.getItem('librarian_info') ? next() : next('/');
       },
     },
+    {
+      path: '/transaction',
+      name: 'TransactionView',
+      component: () => import('../views/admin/Transaction.vue'),
+      beforeEnter: (to, from, next) => {
+        localStorage.getItem('librarian_info') ? next() : next('/');
+      },
+    },
   ]
 });
 
