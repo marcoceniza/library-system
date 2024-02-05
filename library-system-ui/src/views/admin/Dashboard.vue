@@ -43,6 +43,9 @@
                 <!-- add book -->
                 <AddBook @closeModal="bookStore.showBookModal" v-show="bookStore.isShowBookModal" />
 
+                <!-- borrow book -->
+                <BorrowBook @closeModal="bookStore.showBorrowBookModal" :id="id" :bookData="bookData" v-show="bookStore.isShowBorrowBookModal" />
+
                 <!-- update book -->
                 <editBook @closeModal="bookStore.showeditBookModal" :isbn="isbn" v-show="bookStore.isShoweditBookModal" />
 
@@ -66,6 +69,7 @@ import { HomeIcon, PlusIcon } from '@heroicons/vue/24/solid';
 import Header from '@/components/Header.vue';
 import Sidebar from '@/components/Sidebar.vue';
 import AddBook from '../../components/book/AddBook.vue';
+import BorrowBook from '../../components/book/BorrowBook.vue';
 import editBook from '../../components/book/EditBook.vue';
 import DataTable from 'datatables.net-vue3';
 import DataTablesCore from 'datatables.net-bs5';
@@ -79,6 +83,7 @@ const bookStore = useBookStore();
 const customStore = useCustomStore();
 const isbn = ref('');
 const id = ref('');
+const bookData = ref([]);
 
 const columns = [
     { data: 'book_isbn' },
@@ -96,6 +101,7 @@ const columns = [
         render: (data) => {
             return `
                 <div style="display: flex; justify-content: center; gap: 5px;">
+                    <button class="btn btn-primary btn-sm" data-action="borrow" data-row="${data}">Borrow</button>
                     <button class="btn btn-warning btn-sm" data-action="edit" data-row="${data}">Edit</button>
                     <button class="btn btn-danger btn-sm" data-action="delete" data-row="${data}">Delete</button>
                 </div>
@@ -123,6 +129,12 @@ onMounted(() => {
             });
 
             bookStore.isShoweditBookModal = true;
+        }else if(action === 'borrow') {
+            id.value = row;
+            bookStore.data.forEach(res => {
+                if(res.book_isbn === row) bookData.value.push(res);
+            });
+            bookStore.isShowBorrowBookModal = true;
         }else if(action === 'delete') {
             id.value = row;
             bookStore.isShowDeleteBookModal = true;

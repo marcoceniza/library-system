@@ -91,6 +91,41 @@ class Book extends BaseController
         }
     }
 
+    public function borrowBook() {
+        try {
+            $model = model(BookModel::class);
+            $post = $this->request->getPost(['bookID', 'studentID', 'librarianID', 'borrowedDate', 'returnDate', 'dueDate']);
+
+            foreach($post as $value) {
+                if(empty($value)) throw new \Exception('All fields are required');
+            }
+
+            $data = [
+                'transaction_book_isbn' => $post['bookID'],
+                'transaction_student_id' => $post['studentID'],
+                'transaction_librarian_id' => $post['librarianID'],
+                'transaction_date_borrowed' => $post['borrowedDate'],
+                'transaction_date_returned' => $post['returnDate'],
+                'transaction_due_date' => $post['dueDate']
+            ];
+
+            if($model->borrowBook($data)) {
+                return $this->response->setJSON([
+                    'status' => 'success',
+                    'message' => 'Borrowed Book Successfully'
+                ]);
+            }else {
+                throw new \Exception('Something went wrong');
+            }
+
+        }catch(\Exception $error) {
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => $error->getMessage()
+            ]);
+        }
+    }
+
     public function updateBook() {
         try {
             $model = model(BookModel::class);

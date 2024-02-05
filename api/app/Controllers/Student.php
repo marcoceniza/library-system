@@ -7,6 +7,30 @@ use App\Models\StudentModel;
 
 class Student extends BaseController
 {
+    public function fetchSingleStudent() {
+        try {
+            $model = model(StudentModel::class);
+
+            $result = $model->fetchSingleStudent();
+
+            if($result) {
+                return $this->response->setJSON([
+                    'status' => 'success',
+                    'message' => 'Fetch Successfully',
+                    'result' => $result
+                ]);
+            }else {
+                throw new \Exception('No Data Found');
+            }
+
+        }catch(\Exception $error) {
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => $error->getMessage()
+            ]);
+        }
+    }
+
     public function fetchStudent() {
         try {
             $model = model(StudentModel::class);

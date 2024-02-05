@@ -8,7 +8,9 @@ export const useBookStore = defineStore('book', () => {
   const customStore = useCustomStore();
   const isLoading = ref(false);
   const isbookLoader = ref(false);
+  const isBorrowLoader = ref(false);
   const isShowBookModal = ref(false);
+  const isShowBorrowBookModal = ref(false);
   const isShowUpdateBookModal = ref(false);
   const isShowDeleteBookModal = ref(false);
   const data = ref([]);
@@ -36,6 +38,10 @@ export const useBookStore = defineStore('book', () => {
 
   const showUpdateBookModal = () => {
       isShowUpdateBookModal.value = !isShowUpdateBookModal.value;
+  }
+
+  const showBorrowBookModal = () => {
+    isShowBorrowBookModal.value = !isShowBorrowBookModal.value;
   }
 
   const fetchBookHandler = async () => {
@@ -71,6 +77,25 @@ export const useBookStore = defineStore('book', () => {
     isbookLoader.value = false;
     isShowBookModal.value = false;
     fetchBookHandler();
+  }
+
+  const borrowBookHandler = async (bookID, studentID, librarianID, borrowedDate, returnDate, dueDate) => {
+    isBorrowLoader.value = true;
+
+    const formData = new FormData();
+    formData.append('bookID', bookID);
+    formData.append('studentID', studentID);
+    formData.append('librarianID', librarianID);
+    formData.append('borrowedDate', borrowedDate);
+    formData.append('returnDate', returnDate);
+    formData.append('dueDate', dueDate);
+
+    const res = await axios.post(apiUrl + '/borrowBook', formData);
+    customStore.toast(res.data.message, res.data.status);
+    if(res.data.status === 'error') return isBorrowLoader.value = false;
+
+    isBorrowLoader.value = false;
+    isShowBorrowBookModal.value = false;
   }
 
   const updateBookHandler = async (isbn) => {
@@ -113,6 +138,7 @@ export const useBookStore = defineStore('book', () => {
     apiUrl, isLoading, data, addBookHandler,
     isbookLoader, book, genre, updateBookHandler,
     updateBook, deleteBookHandler, isShowBookModal, isShowUpdateBookModal,
-    isShowDeleteBookModal, showBookModal, showUpdateBookModal
+    isShowDeleteBookModal, showBookModal, showUpdateBookModal, isShowBorrowBookModal,
+    showBorrowBookModal, borrowBookHandler
   }
 })

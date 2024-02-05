@@ -24,15 +24,15 @@
                 </DataTable>
 
                 <!-- view student -->
-                <ViewStudentTransaction @closeModal="viewTransactionModal" v-show="showViewTrasactionModal" :data="studentInfo" :stName="studentName" />
+                <ViewStudent @closeModal="viewTransactionModal" v-show="showViewTrasactionModal" :data="studentInfo" :stName="studentName" />
 
                 <!-- delete student transaction -->
-                <div v-show="bookStore.isShowDeleteBookModal" class="bg-[rgba(0,0,0,0.5)] fixed z-1 top-0 w-full h-[100vh] left-0 right-0 text-center">
+                <div class="bg-[rgba(0,0,0,0.5)] fixed z-1 top-0 w-full h-[100vh] left-0 right-0 text-center">
                     <div class="mt-[60px] mx-auto w-[500px] max-w-full bg-[#535353] rounded-[6px] py-[20px] relative">
                         <p class="text-white pb-[20px] text-[20px]">Are you sure you want to delete?</p>
                         <div class="flex justify-center gap-2">
-                            <button @click="bookStore.deleteBookHandler(id)" :class="{ 'opacity-[0.5]': bookStore.isbookLoader }" class="btn btn-danger" :disabled="bookStore.isbookLoader">{{ bookStore.isbookLoader ? 'Deleting...' : 'Delete' }}</button>
-                            <button @click="bookStore.isShowDeleteBookModal = false" class="btn btn-secondary">Cancel</button>
+                            <button class="btn btn-danger">Delete</button>
+                            <button class="btn btn-secondary">Cancel</button>
                         </div>
                     </div>
                 </div>
@@ -45,7 +45,7 @@
 import { HomeIcon, PlusIcon } from '@heroicons/vue/24/solid';
 import Header from '@/components/Header.vue';
 import Sidebar from '@/components/Sidebar.vue';
-import ViewStudentTransaction from '@/components/student/ViewStudentTransaction.vue';
+import ViewStudent from '@/components/student/ViewStudent.vue';
 import DataTable from 'datatables.net-vue3';
 import DataTablesCore from 'datatables.net-bs5';
 import { useStudentStore } from '@/stores/studentStore';

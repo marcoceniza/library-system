@@ -28,7 +28,7 @@ export const useRegisterStore = defineStore('register', () => {
     const res = await axios.post(apiUrl + '/login', formData);
     customStore.toast(res.data.message, res.data.status);
     if(res.data.status === 'error') return isLoading.value = false;
-    localStorage.setItem('user_info', JSON.stringify(res.data.result));
+    localStorage.setItem('librarian_info', JSON.stringify(res.data.result));
     router.push('/dashboard');
 
     for (const key in login) login[key] = '';

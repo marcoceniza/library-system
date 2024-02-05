@@ -19,6 +19,12 @@ class BookModel extends Model
         return $query;
     }
 
+    public function borrowBook($data) {
+        $query = $this->db->table('transaction')
+                      ->insert($data);
+        return $query;
+    }
+
     public function updateBook($id, $data) {
         $query = $this->db->table('book')
                       ->where('book_isbn', $id)

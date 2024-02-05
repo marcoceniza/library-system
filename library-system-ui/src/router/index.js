@@ -19,7 +19,7 @@ const router = createRouter({
       name: 'DashboardView',
       component: () => import('../views/admin/Dashboard.vue'),
       beforeEnter: (to, from, next) => {
-        localStorage.getItem('user_info') ? next() : next('/');
+        localStorage.getItem('librarian_info') ? next() : next('/');
       },
     },
     {
@@ -27,7 +27,7 @@ const router = createRouter({
       name: 'StudentView',
       component: () => import('../views/admin/Student.vue'),
       beforeEnter: (to, from, next) => {
-        localStorage.getItem('user_info') ? next() : next('/');
+        localStorage.getItem('librarian_info') ? next() : next('/');
       },
     },
   ]
