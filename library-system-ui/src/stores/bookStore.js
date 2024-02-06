@@ -96,6 +96,7 @@ export const useBookStore = defineStore('book', () => {
 
     isBorrowLoader.value = false;
     isShowBorrowBookModal.value = false;
+    fetchBookHandler();
   }
 
   const updateBookHandler = async (isbn) => {

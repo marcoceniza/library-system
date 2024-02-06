@@ -18,10 +18,12 @@
                             <th class="text-center">Borrowed Date</th>
                             <th class="text-center">Return Date</th>
                             <th class="text-center">Due Date</th>
-                            <th class="text-center">Action</th>
+                            <!-- <th class="text-center">Action</th> -->
                         </tr>
                     </thead>
                 </DataTable>
+
+                <!-- <ViewTransaction /> -->
             </section>
         </div>
     </div>
@@ -31,6 +33,7 @@
 import { HomeIcon, PlusIcon } from '@heroicons/vue/24/solid';
 import Header from '@/components/Header.vue';
 import Sidebar from '@/components/Sidebar.vue';
+// import ViewTransaction from '@/components/transaction/ViewTransaction';
 import DataTable from 'datatables.net-vue3';
 import DataTablesCore from 'datatables.net-bs5';
 import { useTransactionStore } from '@/stores/transactionStore';
@@ -60,15 +63,15 @@ const columns = [
             return customStore.formatDate(data);
         }
     },
-    { data: 'student_id',
-        render: (data) => {
-            return `
-                <div style="display: flex; justify-content: center; gap: 5px;">
-                    <button class="btn btn-primary btn-sm" data-action="view" data-row="${data}">View More</button>
-                </div>
-            `;
-        }
-    },
+    // { data: 'student_id',
+    //     render: (data) => {
+    //         return `
+    //             <div style="display: flex; justify-content: center; gap: 5px;">
+    //                 <button class="btn btn-primary btn-sm" data-action="view" data-row="${data}">View More</button>
+    //             </div>
+    //         `;
+    //     }
+    // },
 ];
 
 onMounted(() => {

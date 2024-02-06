@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 05, 2024 at 11:56 PM
+-- Generation Time: Feb 06, 2024 at 10:53 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -42,8 +42,8 @@ CREATE TABLE `book` (
 --
 
 INSERT INTO `book` (`book_isbn`, `book_title`, `book_author`, `book_genre`, `book_published_year`, `book_copies_available`, `book_total_copies`) VALUES
-(1, 'Html5 and Css3 Responsive Web Design Cookbook', 'Benjamin LaGrone', 'Programming', '2024-01-26 23:24:18', 3, 5),
-(2, 'Responsive Web Design with jQuery', 'Gilberto Carlos', 'Programming', '2024-01-26 23:25:30', 2, 8);
+(1, 'Html5 and Css3 Responsive Web Design Cookbook', 'Benjamin LaGrone', 'Programming', '2024-01-26 23:24:18', 1, 5),
+(2, 'Responsive Web Design with jQuery', 'Gilberto Carlos', 'Programming', '2024-01-26 23:25:30', 1, 8);
 
 -- --------------------------------------------------------
 
@@ -130,7 +130,11 @@ CREATE TABLE `transaction` (
 --
 
 INSERT INTO `transaction` (`transaction_id`, `transaction_book_isbn`, `transaction_student_id`, `transaction_librarian_id`, `transaction_date_borrowed`, `transaction_date_returned`, `transaction_due_date`) VALUES
-(3, 1, 2, 2, '2024-02-06 00:00:00', '2024-02-12 00:00:00', '2024-02-14 00:00:00');
+(3, 1, 2, 2, '2024-02-06 00:00:00', '2024-02-12 00:00:00', '2024-02-14 00:00:00'),
+(4, 2, 1, 1, '2024-02-08 00:00:00', '2024-02-12 00:00:00', '2024-02-14 00:00:00'),
+(5, 2, 1, 1, '2024-02-08 00:00:00', '2024-02-12 00:00:00', '2024-02-15 00:00:00'),
+(6, 1, 2, 1, '2024-02-08 00:00:00', '2024-02-09 00:00:00', '2024-02-12 00:00:00'),
+(7, 1, 2, 1, '2024-02-08 00:00:00', '2024-02-12 00:00:00', '2024-02-15 00:00:00');
 
 --
 -- Indexes for dumped tables
@@ -201,7 +205,7 @@ ALTER TABLE `student`
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

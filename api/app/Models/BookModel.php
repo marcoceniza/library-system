@@ -20,9 +20,24 @@ class BookModel extends Model
     }
 
     public function borrowBook($data) {
-        $query = $this->db->table('transaction')
-                      ->insert($data);
-        return $query;
+        $book = $this->findAll();
+
+        foreach($book as $value) {
+            if($value['book_isbn'] == $data['transaction_book_isbn']) {
+                $bookCount = $value['book_copies_available'] - 1;
+
+                $totalBook = $this->db->table('book')
+                                      ->where('book_isbn', $data['transaction_book_isbn'])
+                                      ->update(['book_copies_available' => $bookCount]);
+                
+                if($totalBook) {
+                    $query = $this->db->table('transaction')
+                                      ->insert($data);
+
+                    return $query;
+                }
+            }
+        }
     }
 
     public function updateBook($id, $data) {
