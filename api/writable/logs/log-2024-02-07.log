@@ -1,0 +1,96 @@
+CRITICAL - 2024-02-07 21:53:41 --> TypeError: Cannot access offset of type string on string
+in APPPATH\Models\BookModel.php on line 47.
+ 1 APPPATH\Controllers\Book.php(138): App\Models\BookModel->returnBook('2')
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Book->returnBook()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Book))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\NS Dev\\2024\\library-system\\api\\public\\index.php')
+CRITICAL - 2024-02-07 21:58:33 --> TypeError: Cannot access offset of type string on string
+in APPPATH\Models\BookModel.php on line 47.
+ 1 APPPATH\Controllers\Book.php(138): App\Models\BookModel->returnBook('2')
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Book->returnBook()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Book))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\NS Dev\\2024\\library-system\\api\\public\\index.php')
+CRITICAL - 2024-02-07 21:59:03 --> TypeError: Cannot access offset of type string on string
+in APPPATH\Models\BookModel.php on line 47.
+ 1 APPPATH\Controllers\Book.php(138): App\Models\BookModel->returnBook('2')
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Book->returnBook()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Book))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\NS Dev\\2024\\library-system\\api\\public\\index.php')
+CRITICAL - 2024-02-07 22:00:31 --> TypeError: Cannot access offset of type string on string
+in APPPATH\Models\BookModel.php on line 47.
+ 1 APPPATH\Controllers\Book.php(138): App\Models\BookModel->returnBook('2')
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Book->returnBook()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Book))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\NS Dev\\2024\\library-system\\api\\public\\index.php')
+CRITICAL - 2024-02-07 22:01:18 --> TypeError: Cannot access offset of type string on string
+in APPPATH\Models\BookModel.php on line 47.
+ 1 APPPATH\Controllers\Book.php(138): App\Models\BookModel->returnBook('2')
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Book->returnBook()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Book))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\NS Dev\\2024\\library-system\\api\\public\\index.php')
+CRITICAL - 2024-02-07 22:04:37 --> TypeError: Cannot access offset of type string on string
+in APPPATH\Models\BookModel.php on line 47.
+ 1 APPPATH\Controllers\Book.php(138): App\Models\BookModel->returnBook('2')
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Book->returnBook()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Book))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\NS Dev\\2024\\library-system\\api\\public\\index.php')
+CRITICAL - 2024-02-07 22:07:51 --> TypeError: Cannot access offset of type string on string
+in APPPATH\Models\BookModel.php on line 47.
+ 1 APPPATH\Controllers\Book.php(138): App\Models\BookModel->returnBook('2')
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Book->returnBook()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Book))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\NS Dev\\2024\\library-system\\api\\public\\index.php')
+CRITICAL - 2024-02-07 22:10:51 --> TypeError: Cannot access offset of type string on string
+in APPPATH\Models\BookModel.php on line 47.
+ 1 APPPATH\Controllers\Book.php(134): App\Models\BookModel->returnBook('2')
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Book->returnBook()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Book))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\NS Dev\\2024\\library-system\\api\\public\\index.php')
+CRITICAL - 2024-02-07 22:12:47 --> TypeError: Cannot access offset of type string on string
+in APPPATH\Models\BookModel.php on line 47.
+ 1 APPPATH\Controllers\Book.php(134): App\Models\BookModel->returnBook('2')
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Book->returnBook()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Book))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\NS Dev\\2024\\library-system\\api\\public\\index.php')
+CRITICAL - 2024-02-07 22:13:22 --> TypeError: Cannot access offset of type string on string
+in APPPATH\Models\BookModel.php on line 46.
+ 1 APPPATH\Controllers\Book.php(134): App\Models\BookModel->returnBook('2')
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Book->returnBook()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Book))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\NS Dev\\2024\\library-system\\api\\public\\index.php')
+CRITICAL - 2024-02-07 22:13:42 --> TypeError: Cannot access offset of type string on string
+in APPPATH\Models\BookModel.php on line 46.
+ 1 APPPATH\Controllers\Book.php(134): App\Models\BookModel->returnBook('2')
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Book->returnBook()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Book))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\NS Dev\\2024\\library-system\\api\\public\\index.php')
+CRITICAL - 2024-02-07 22:17:05 --> TypeError: Cannot access offset of type string on string
+in APPPATH\Models\BookModel.php on line 47.
+ 1 APPPATH\Controllers\Book.php(134): App\Models\BookModel->returnBook('2')
+ 2 SYSTEMPATH\CodeIgniter.php(941): App\Controllers\Book->returnBook()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Book))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('D:\\NS Dev\\2024\\library-system\\api\\public\\index.php')

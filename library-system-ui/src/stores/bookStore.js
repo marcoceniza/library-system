@@ -9,6 +9,7 @@ export const useBookStore = defineStore('book', () => {
   const isLoading = ref(false);
   const isbookLoader = ref(false);
   const isBorrowLoader = ref(false);
+  const isConfirmLoader = ref(false);
   const isShowBookModal = ref(false);
   const isShowBorrowBookModal = ref(false);
   const isShowUpdateBookModal = ref(false);
@@ -99,6 +100,21 @@ export const useBookStore = defineStore('book', () => {
     fetchBookHandler();
   }
 
+  const returnBookHandler = async (bookID) => {
+    isConfirmLoader.value = true;
+
+    const formData = new FormData();
+    formData.append('bookID', bookID);
+
+    const res = await axios.post(apiUrl + '/returnBook', formData);
+    customStore.toast(res.data.message, res.data.status);
+    if(res.data.status === 'error') return isConfirmLoader.value = false;
+
+    isConfirmLoader.value = false;
+    isShowBorrowBookModal.value = false;
+    fetchBookHandler();
+  }
+
   const updateBookHandler = async (isbn) => {
     isbookLoader.value = true;
 
@@ -140,6 +156,6 @@ export const useBookStore = defineStore('book', () => {
     isbookLoader, book, genre, updateBookHandler,
     updateBook, deleteBookHandler, isShowBookModal, isShowUpdateBookModal,
     isShowDeleteBookModal, showBookModal, showUpdateBookModal, isShowBorrowBookModal,
-    showBorrowBookModal, borrowBookHandler
+    showBorrowBookModal, borrowBookHandler, returnBookHandler, isConfirmLoader
   }
 })

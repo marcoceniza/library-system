@@ -13,6 +13,7 @@ class TransactionModel extends Model
         $query = $this->join('book', 'book.book_isbn = transaction.transaction_book_isbn')
                       ->join('student', 'student.student_id = transaction.transaction_student_id')
                       ->join('librarian', 'librarian.librarian_id = transaction.transaction_librarian_id')
+                      ->where('transaction.transaction_status', 0)
                       ->findAll();
 
         return $query;

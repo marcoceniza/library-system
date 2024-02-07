@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 06, 2024 at 10:53 PM
+-- Generation Time: Feb 07, 2024 at 11:59 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -43,7 +43,7 @@ CREATE TABLE `book` (
 
 INSERT INTO `book` (`book_isbn`, `book_title`, `book_author`, `book_genre`, `book_published_year`, `book_copies_available`, `book_total_copies`) VALUES
 (1, 'Html5 and Css3 Responsive Web Design Cookbook', 'Benjamin LaGrone', 'Programming', '2024-01-26 23:24:18', 1, 5),
-(2, 'Responsive Web Design with jQuery', 'Gilberto Carlos', 'Programming', '2024-01-26 23:25:30', 1, 8);
+(2, 'Responsive Web Design with jQuery', 'Gilberto Carlos', 'Programming', '2024-01-26 23:25:30', 2, 8);
 
 -- --------------------------------------------------------
 
@@ -122,19 +122,20 @@ CREATE TABLE `transaction` (
   `transaction_librarian_id` int(11) NOT NULL,
   `transaction_date_borrowed` datetime NOT NULL,
   `transaction_date_returned` datetime NOT NULL,
-  `transaction_due_date` datetime NOT NULL
+  `transaction_due_date` datetime NOT NULL,
+  `transaction_status` int(11) DEFAULT 0 COMMENT '0-borrow, 1-return'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `transaction`
 --
 
-INSERT INTO `transaction` (`transaction_id`, `transaction_book_isbn`, `transaction_student_id`, `transaction_librarian_id`, `transaction_date_borrowed`, `transaction_date_returned`, `transaction_due_date`) VALUES
-(3, 1, 2, 2, '2024-02-06 00:00:00', '2024-02-12 00:00:00', '2024-02-14 00:00:00'),
-(4, 2, 1, 1, '2024-02-08 00:00:00', '2024-02-12 00:00:00', '2024-02-14 00:00:00'),
-(5, 2, 1, 1, '2024-02-08 00:00:00', '2024-02-12 00:00:00', '2024-02-15 00:00:00'),
-(6, 1, 2, 1, '2024-02-08 00:00:00', '2024-02-09 00:00:00', '2024-02-12 00:00:00'),
-(7, 1, 2, 1, '2024-02-08 00:00:00', '2024-02-12 00:00:00', '2024-02-15 00:00:00');
+INSERT INTO `transaction` (`transaction_id`, `transaction_book_isbn`, `transaction_student_id`, `transaction_librarian_id`, `transaction_date_borrowed`, `transaction_date_returned`, `transaction_due_date`, `transaction_status`) VALUES
+(3, 1, 2, 2, '2024-02-06 00:00:00', '2024-02-12 00:00:00', '2024-02-14 00:00:00', 0),
+(4, 2, 1, 1, '2024-02-08 00:00:00', '2024-02-12 00:00:00', '2024-02-14 00:00:00', 1),
+(5, 2, 1, 1, '2024-02-08 00:00:00', '2024-02-12 00:00:00', '2024-02-15 00:00:00', 1),
+(6, 1, 2, 1, '2024-02-08 00:00:00', '2024-02-09 00:00:00', '2024-02-12 00:00:00', 0),
+(7, 1, 2, 1, '2024-02-08 00:00:00', '2024-02-12 00:00:00', '2024-02-15 00:00:00', 0);
 
 --
 -- Indexes for dumped tables

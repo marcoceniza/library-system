@@ -126,6 +126,28 @@ class Book extends BaseController
         }
     }
 
+    public function returnBook() {
+        try {
+            $model = model(BookModel::class);
+            $post = $this->request->getPost(['bookID']);
+
+            if($model->returnBook($post['bookID'])) {
+                return $this->response->setJSON([
+                    'status' => 'success',
+                    'message' => 'Returned Book Successfully'
+                ]);
+            }else {
+                throw new \Exception('Something went wrong');
+            }
+
+        }catch(\Exception $error) {
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => $error->getMessage()
+            ]);
+        }
+    }
+
     public function updateBook() {
         try {
             $model = model(BookModel::class);

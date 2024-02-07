@@ -40,6 +40,28 @@ class BookModel extends Model
         }
     }
 
+    public function returnBook($bookID) {
+        $book = $this->findAll();
+
+        foreach($book as $value) {
+            if($value['book_isbn'] == $bookID) {
+                $bookCount = $value['book_copies_available'] + 1;
+
+                $totalBook = $this->db->table('book')
+                                      ->where('book_isbn', $bookID)
+                                      ->update(['book_copies_available' => $bookCount]);
+
+                if($totalBook) {
+                    $this->db->table('transaction')
+                             ->where('transaction_id', $bookID)
+                             ->update(['transaction_status' => 1]);
+
+                    return true;
+                }
+            }
+        }
+    }
+
     public function updateBook($id, $data) {
         $query = $this->db->table('book')
                       ->where('book_isbn', $id)

@@ -16,6 +16,7 @@ $routes->get('fetchBook', 'Book::fetchBook');
 $routes->get('fetchGenre', 'Book::fetchGenre');
 $routes->post('addBook', 'Book::addBook');
 $routes->post('borrowBook', 'Book::borrowBook');
+$routes->post('returnBook', 'Book::returnBook');
 $routes->post('updateBook', 'Book::updateBook');
 $routes->post('deleteBook', 'Book::deleteBook');
 

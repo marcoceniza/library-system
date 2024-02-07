@@ -27,7 +27,7 @@
                 <ViewStudent @closeModal="viewTransactionModal" v-show="showViewTrasactionModal" :data="studentInfo" :stName="studentName" />
 
                 <!-- delete student transaction -->
-                <div class="bg-[rgba(0,0,0,0.5)] fixed z-1 top-0 w-full h-[100vh] left-0 right-0 text-center">
+                <!-- <div class="bg-[rgba(0,0,0,0.5)] fixed z-1 top-0 w-full h-[100vh] left-0 right-0 text-center">
                     <div class="mt-[60px] mx-auto w-[500px] max-w-full bg-[#535353] rounded-[6px] py-[20px] relative">
                         <p class="text-white pb-[20px] text-[20px]">Are you sure you want to delete?</p>
                         <div class="flex justify-center gap-2">
@@ -35,7 +35,7 @@
                             <button class="btn btn-secondary">Cancel</button>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </section>
         </div>
     </div>
@@ -73,7 +73,6 @@ const columns = [
             return `
                 <div style="display: flex; justify-content: center; gap: 5px;">
                     <button class="btn btn-primary btn-sm" data-action="view" data-row="${data}">View</button>
-                    <button class="btn btn-danger btn-sm" data-action="delete" data-row="${data}">Delete</button>
                 </div>
             `;
         }

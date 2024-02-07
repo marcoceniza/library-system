@@ -18,12 +18,21 @@
                             <th class="text-center">Borrowed Date</th>
                             <th class="text-center">Return Date</th>
                             <th class="text-center">Due Date</th>
-                            <!-- <th class="text-center">Action</th> -->
+                            <th class="text-center">Action</th>
                         </tr>
                     </thead>
                 </DataTable>
 
-                <!-- <ViewTransaction /> -->
+                <!-- confirm modal -->
+                <div v-show="confirmTransaction" class="bg-[rgba(0,0,0,0.5)] fixed z-1 top-0 w-full h-[100vh] left-0 right-0 text-center">
+                    <div class="mt-[60px] mx-auto w-[500px] max-w-full bg-[#535353] rounded-[6px] py-[20px] relative">
+                        <p class="text-white pb-[20px] text-[20px]">Are you sure you want to complete transaction?</p>
+                        <div class="flex justify-center gap-2">
+                            <button @click="bookStore.returnBookHandler(getBookID)" :class="{ 'opacity-[0.5]': bookStore.isConfirmLoader }" class="btn btn-danger" :disabled="bookStore.isConfirmLoader">{{ bookStore.isConfirmLoader ? 'Confirm...' : 'Confirm' }}</button>
+                            <button @click="confirmTransaction = false" class="btn btn-secondary">Cancel</button>
+                        </div>
+                    </div>
+                </div>
             </section>
         </div>
     </div>
@@ -33,17 +42,20 @@
 import { HomeIcon, PlusIcon } from '@heroicons/vue/24/solid';
 import Header from '@/components/Header.vue';
 import Sidebar from '@/components/Sidebar.vue';
-// import ViewTransaction from '@/components/transaction/ViewTransaction';
 import DataTable from 'datatables.net-vue3';
 import DataTablesCore from 'datatables.net-bs5';
 import { useTransactionStore } from '@/stores/transactionStore';
 import { useCustomStore } from '@/stores/customStore';
-import { onMounted } from 'vue';
+import { useBookStore } from '@/stores/bookStore';
+import { onMounted, ref } from 'vue';
  
 DataTable.use(DataTablesCore);
 
 const transactionStore = useTransactionStore();
 const customStore = useCustomStore();
+const bookStore = useBookStore();
+const getBookID = ref();
+const confirmTransaction = ref(false);
 
 const columns = [
     { data: 'student_name' },
@@ -63,15 +75,15 @@ const columns = [
             return customStore.formatDate(data);
         }
     },
-    // { data: 'student_id',
-    //     render: (data) => {
-    //         return `
-    //             <div style="display: flex; justify-content: center; gap: 5px;">
-    //                 <button class="btn btn-primary btn-sm" data-action="view" data-row="${data}">View More</button>
-    //             </div>
-    //         `;
-    //     }
-    // },
+    { data: 'transaction_book_isbn',
+        render: (data) => {
+            return `
+                <div style="display: flex; justify-content: center; gap: 5px;">
+                    <button class="btn btn-primary btn-sm" data-action="return" data-row="${data}">Return</button>
+                </div>
+            `;
+        }
+    },
 ];
 
 onMounted(() => {
@@ -79,10 +91,11 @@ onMounted(() => {
         let action = event.target.dataset.action;
         let row = event.target.dataset.row;
 
-        if(action === 'view') {
-            transactionStore.data.forEach(res => {
-                if(res.student_id === row) console.log(res);
-            }); 
+        if(action === 'return') {
+            getBookID.value = row;
+            confirmTransaction.value = true;
+
+            console.log(transactionStore.data);
         }
     });
 });
