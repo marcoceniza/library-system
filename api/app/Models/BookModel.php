@@ -64,8 +64,8 @@ class BookModel extends Model
 
     public function updateBook($id, $data) {
         $query = $this->db->table('book')
-                      ->where('book_isbn', $id)
-                      ->update($data);
+                          ->where('book_isbn', $id)
+                          ->update($data);
         return $query;
     }
 

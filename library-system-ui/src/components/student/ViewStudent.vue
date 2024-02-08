@@ -25,7 +25,7 @@
 <script setup>
 import DataTable from 'datatables.net-vue3';
 import DataTablesCore from 'datatables.net-bs5';
-// import { useStudentStore } from '@/stores/studentStore';
+import { useCustomStore } from '@/stores/customStore';
  
 DataTable.use(DataTablesCore);
 
@@ -34,15 +34,27 @@ const props = defineProps({
     stName: String
 });
 
-// const studentStore = useStudentStore();
+const customStore = useCustomStore();
 
 const columns = [
     { data: 'book_title' },
     { data: 'book_author' },
     { data: 'book_genre' },
-    { data: 'book_published_year' },
-    { data: 'transaction_date_borrowed' },
-    { data: 'transaction_date_returned' },
+    { data: 'book_published_year',
+        render: (data) => {
+            return customStore.formatDate(data);
+        }
+    },
+    { data: 'transaction_date_borrowed',
+        render: (data) => {
+            return customStore.formatDate(data);
+        }
+    },
+    { data: 'transaction_date_returned',
+        render: (data) => {
+            return customStore.formatDate(data);
+        }
+    },
     { data: 'librarian_name' },
 ];
 

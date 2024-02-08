@@ -26,7 +26,7 @@
                 <!-- confirm modal -->
                 <div v-show="confirmTransaction" class="bg-[rgba(0,0,0,0.5)] fixed z-1 top-0 w-full h-[100vh] left-0 right-0 text-center">
                     <div class="mt-[60px] mx-auto w-[500px] max-w-full bg-[#535353] rounded-[6px] py-[20px] relative">
-                        <p class="text-white pb-[20px] text-[20px]">Are you sure you want to complete transaction?</p>
+                        <p class="text-white pb-[20px] text-[20px]">Complete Transaction?</p>
                         <div class="flex justify-center gap-2">
                             <button @click="bookStore.returnBookHandler(getBookID)" :class="{ 'opacity-[0.5]': bookStore.isConfirmLoader }" class="btn btn-danger" :disabled="bookStore.isConfirmLoader">{{ bookStore.isConfirmLoader ? 'Confirm...' : 'Confirm' }}</button>
                             <button @click="confirmTransaction = false" class="btn btn-secondary">Cancel</button>

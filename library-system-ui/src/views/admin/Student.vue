@@ -10,7 +10,7 @@
                 <div class="flex justify-between">
                     <h3 class="mb-4">Student</h3>
                 </div>
-                <DataTable :data="studentStore.data" :columns="columns" class="display table table-striped">
+                <DataTable :data="studentStore.singleStudent" :columns="columns" class="display table table-striped">
                     <thead>
                         <tr>
                             <th class="text-center">Student ID</th>
@@ -88,10 +88,16 @@ onMounted(() => {
             studentInfo.value = [];
             studentName.value = '';
             
-            studentStore.data.forEach(res => {
-                if(res.student_id === row) {
-                    studentInfo.value.push(res);
-                    studentName.value = res.student_name;
+            studentStore.singleStudent.forEach(el => {
+                if(el.student_id === row) {
+                    studentName.value = el.student_name;
+
+                    studentStore.data.forEach(el2 => {
+                        if(el.student_id == el2.student_id) {
+                            studentInfo.value.push(el2);
+                            console.log(el2);
+                        }
+                    });
                 }
             });
 
