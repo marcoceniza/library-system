@@ -7,23 +7,26 @@
             </section>
             <section class="w-full p-5 pt-4">
                 <p class="relative pl-6 pb-4"><HomeIcon class="h-4 w-4 text-[#555] absolute left-0 top-[5px]" /> Home &gt; Dashboard</p>
-                <div class="flex justify-center mb-4">
-                    <section class="bg-[#555] m-[4px] w-[300px] min-h-[150px] leading-[150px] max-w-full text-center text-white rounded-[4px]">
-                        <p>Number of Student</p>
+                <div class="flex justify-center mb-[70px]">
+                    <section class="bg-[#ffc107] m-[4px] w-[300px] min-h-[150px] leading-[150px] max-w-full text-center text-white rounded-[4px] relative flex justify-around items-center">
+                        <p class="leading-[35px] text-[15px] mt-[35px]"><strong class="block text-[50px]">{{ studentStore.data.length }}</strong> {{ studentStore.data.length > 1 ? 'Students' : 'Student' }}</p>
+                        <UserGroupIcon class="h-[100px] w-[100px] text-[#d5aa2b]" />
                     </section>
-                    <section class="bg-[#555] m-[4px] w-[300px] min-h-[150px] leading-[150px] max-w-full text-center text-white rounded-[4px]">
-                        <p>Number of Librarian</p>
+                    <section class="bg-[#dc3545] m-[4px] w-[300px] min-h-[150px] leading-[150px] max-w-full text-center text-white rounded-[4px] relative flex justify-around items-center">
+                        <p class="leading-[35px] text-[15px] mt-[35px]"><strong class="block text-[50px]">{{ bookStore.data.length }}</strong> {{ bookStore.data.length > 1 ? 'Books' : 'Book' }}</p>
+                        <BookOpenIcon class="h-[100px] w-[100px] text-[#a63a44]" />
                     </section>
-                    <section class="bg-[#555] m-[4px] w-[300px] min-h-[150px] leading-[150px] max-w-full text-center text-white rounded-[4px]">
-                        <p>Number of Books</p>
+                    <section class="bg-[#0dcaf0] m-[4px] w-[300px] min-h-[150px] leading-[150px] max-w-full text-center text-white rounded-[4px] relative flex justify-around items-center">
+                        <p class="leading-[35px] text-[15px] mt-[35px]"><strong class="block text-[50px]">{{ transactionStore.data.length }}</strong> Borrowed</p>
+                        <InboxArrowDownIcon class="h-[100px] w-[100px] text-[#18a7c4]" />
                     </section>
-                    <section class="bg-[#555] m-[4px] w-[300px] min-h-[150px] leading-[150px] max-w-full text-center text-white rounded-[4px]">
-                        <p>Book Borrowed</p>
+                    <section class="bg-[#555] m-[4px] w-[300px] min-h-[150px] leading-[150px] max-w-full text-center text-white rounded-[4px] relative flex justify-around items-center">
+                        <p class="text-[16px] leading-[22px] font-thin">Today is <strong class="block text-[20px] font-bold">{{ customStore.formatDate(new Date()) }}</strong></p>
                     </section>
                 </div>
                 <div class="flex justify-between">
                     <h3 class="mb-4">Dashboard</h3>
-                    <button @click="bookStore.showBookModal" class="btn btn-primary relative h-[50px] w-[120px] max-w-full"><PlusIcon class="h-4 w-4 text-[#fff] absolute top-[18px]" /> Book</button>
+                    <button @click="bookStore.showBookModal" class="btn btn-primary relative h-[50px] w-[120px] max-w-full"><PlusIcon class="h-4 w-4 text-[#fff] absolute top-[18px]" /> <span class="pl-2">Book</span></button>
                 </div>
                 <DataTable :data="bookStore.data" :columns="columns" class="display table table-striped">
                     <thead>
@@ -47,7 +50,7 @@
                 <BorrowBook @closeModal="bookStore.showBorrowBookModal" :id="id" :bookData="bookData" v-show="bookStore.isShowBorrowBookModal" />
 
                 <!-- update book -->
-                <editBook @closeModal="bookStore.showeditBookModal" :isbn="isbn" v-show="bookStore.isShoweditBookModal" />
+                <editBook @closeModal="bookStore.showUpdateBookModal" :isbn="isbn" v-show="bookStore.isShowUpdateBookModal" />
 
                 <!-- delete book -->
                 <div v-show="bookStore.isShowDeleteBookModal" class="bg-[rgba(0,0,0,0.5)] fixed z-1 top-0 w-full h-[100vh] left-0 right-0 text-center">
@@ -65,7 +68,7 @@
 </template>
 
 <script setup>
-import { HomeIcon, PlusIcon } from '@heroicons/vue/24/solid';
+import { HomeIcon, PlusIcon, UserGroupIcon, BookOpenIcon, InboxArrowDownIcon } from '@heroicons/vue/24/solid';
 import Header from '@/components/Header.vue';
 import Sidebar from '@/components/Sidebar.vue';
 import AddBook from '../../components/book/AddBook.vue';
@@ -74,12 +77,16 @@ import editBook from '../../components/book/EditBook.vue';
 import DataTable from 'datatables.net-vue3';
 import DataTablesCore from 'datatables.net-bs5';
 import { useBookStore } from '@/stores/bookStore';
+import { useStudentStore } from '@/stores/studentStore';
+import { useTransactionStore } from '@/stores/transactionStore';
 import { useCustomStore } from '@/stores/customStore';
 import { onMounted, ref } from 'vue';
  
 DataTable.use(DataTablesCore);
 
 const bookStore = useBookStore();
+const studentStore = useStudentStore();
+const transactionStore = useTransactionStore();
 const customStore = useCustomStore();
 const isbn = ref('');
 const id = ref('');
@@ -119,16 +126,16 @@ onMounted(() => {
             bookStore.data.forEach(res => {
                 if(res.book_isbn === row) {
                     isbn.value = res.book_isbn;
-                    bookStore.editBook.title = res.book_title;
-                    bookStore.editBook.author = res.book_author;
-                    bookStore.editBook.genre = res.book_genre;
-                    bookStore.editBook.publishedYear = customStore.formatDate(res.book_published_year);
-                    bookStore.editBook.copiesAvailable = res.book_copies_available;
-                    bookStore.editBook.totalCopies = res.book_total_copies;
+                    bookStore.updateBook.title = res.book_title;
+                    bookStore.updateBook.author = res.book_author;
+                    bookStore.updateBook.genre = res.book_genre;
+                    bookStore.updateBook.publishedYear = customStore.formatDate(res.book_published_year);
+                    bookStore.updateBook.copiesAvailable = res.book_copies_available;
+                    bookStore.updateBook.totalCopies = res.book_total_copies;
                 }
             });
 
-            bookStore.isShoweditBookModal = true;
+            bookStore.isShowUpdateBookModal = true;
         }else if(action === 'borrow') {
             id.value = row;
             bookStore.data.forEach(res => {

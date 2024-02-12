@@ -1,6 +1,6 @@
 <template>
     <div class="bg-[#e85d5d] py-[12px] h-[60px]">
-        <p class="text-[23px] ml-[40px] font-bold text-white">LOGO</p>
+        <p class="text-[23px] font-bold text-white w-[220px] text-center">LOGO <Bars3Icon class="h-5 w-5 text-[#fff] absolute top-[21px] left-[12%]" /></p>
         <div class="absolute right-0 top-0 z-1">
             <UserCircleIcon @click="customStore.toggleUser" class="h-[3rem] w-[3rem] text-[#fff] absolute right-[8px] top-[6px] cursor-pointer" />
             <ul v-show="customStore.isShowMenu" class="bg-[#ddd] text-center py-[12px] mt-[60px] w-[145px] max-w-[100%] px-0 rounded-b-[5px]">
@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import { UserCircleIcon, UserIcon, ArrowLeftStartOnRectangleIcon } from '@heroicons/vue/24/solid';
+import { UserCircleIcon, UserIcon, ArrowLeftStartOnRectangleIcon, Bars3Icon } from '@heroicons/vue/24/solid';
 import { useCustomStore } from '@/stores/customStore';
 import { useRouter } from 'vue-router';
 // import { useRegisterStore } from '@/stores/registerStore';
